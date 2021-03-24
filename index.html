@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Alarm Repoter™</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="node_modules/bootstrap.min.css" />
+    <script src="node_modules/jquery.min.js"></script>
+    <script src="node_modules/bootstrap.min.js"></script>
+    <script type="text/javascript" src="data.json"></script>
+    <!-- for autocomplete -->
+    <link rel="stylesheet" href="node_modules/jquery-ui.min.css" />
+    <script src="node_modules/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <h2>گزارشگر آلارم</h2>
+      <form>
+        <label>کدسایت</label>
+        <input
+          type="text"
+          class="form-control"
+          id="site_code"
+          placeholder="کدسایت بدون ES"
+        />
+        <label>آلارم</label>
+        <input
+          type="text"
+          class="form-control"
+          id="alarminput"
+          placeholder=""
+        />
+        <label>زمان</label>
+        <input type="text" class="form-control" id="timesel" placeholder="" />
+        <label>گزارش به</label>
+        <input type="text" class="form-control" id="rep_to" placeholder="" />
+        <label>مانیتورینگ</label>
+        <input
+          type="text"
+          class="form-control"
+          id="monitoring"
+          placeholder=""
+        />
+        <br />
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="preview"
+          data-toggle="modal"
+          data-target="#exampleModalLong"
+        >
+          مشاهده پیش نمایش
+        </button>
+      </form>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                پیش نمایش آلارم
+              </h5>
+            </div>
+            <div class="modal-body">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <pre id="pre_modal"></pre>
+            </div>
+            <div class="modal-footer">
+              <button
+                style="background-color: darkcyan"
+                type="button"
+                class="btn btn-secondary copyb"
+                data-dismiss="modal"
+              >
+                بستن
+              </button>
+              <button
+                type="button"
+                id="copybutton"
+                class="js-textareacopybtn btn btn-primary copyb"
+              >
+                کپی!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>

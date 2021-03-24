@@ -28,9 +28,7 @@ $(function () {
     source: availableTags,
   });
 });
-////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////
+// when clicking preview button:
 document.getElementById("preview").addEventListener("click", function () {
   alarmtime = document.getElementById("timesel").value;
   codesite = document.getElementById("site_code").value;
@@ -64,6 +62,7 @@ function text_maker(cs, ssn) {
 مانیتورینگ: ${monitoring}
 
 `;
+  console.log(alarm_text);
   document.getElementById("pre_modal").innerHTML = alarm_text;
   $("#myModal").modal();
   const copyToClipboard = (str) => {

@@ -2,8 +2,8 @@
 
 var names = [];
 var codes = [];
-let selected_site_name;
-let ES_site;
+let selected_site_name = [];
+let ES_site = [];
 let today = new Date()
   .toLocaleDateString("fa-IR")
   .replace(/([۰-۹])/g, (token) =>
@@ -62,37 +62,59 @@ document.getElementById("preview").addEventListener("click", function () {
   codesite = document.getElementById("site_code").value;
   reportedto = document.getElementById("rep_to").value;
   monitoring = document.getElementById("monitoring").value;
-  ES_site = `ES${codesite}`;
+  let seperated_sites_arr = codesite.split(" ");
+  ES_er(seperated_sites_arr);
+  function ES_er(arraye) {
+    for (let j = 0; j < arraye.length; j++) {
+      ES_site[j] = `ES${arraye[j]}`;
+    }
+  }
   $.getJSON("data.json", function (json) {
     let jsonlen = Object.keys(json).length;
     for (let i = 0; i < jsonlen; i++) {
       names[i] = json[i].name;
       codes[i] = json[i].code;
-      if (ES_site == codes[i]) {
-        selected_site_name = names[i];
-        break;
-      }
+      // if (ES_site == codes[i]) {
+      //   selected_site_name = names[i];
+      //   break;
+      // }
+      // }
+      // if (!selected_site_name) {
+      //   selected_site_name = "کد سایت اشتباه/ناموجود";
     }
-    if (!selected_site_name) {
-      selected_site_name = "کد سایت اشتباه/ناموجود";
-    }
-    text_maker(codesite, selected_site_name);
+    name_searcher(ES_site, names, codes);
+    text_maker(ES_site, selected_site_name);
   });
 });
+function name_searcher(input_codesites, name_database, code_database) {
+  for (let a = 0; a < input_codesites.length; a++) {
+    //loop through input sites
+    for (let b = 0; b < code_database.length; b++) {
+      // console.log(input_codesites[a], code_database[b]);
+      if (input_codesites[a] == code_database[b]) {
+        selected_site_name[a] = name_database[b];
+      }
+    }
+  }
+}
 function text_maker(cs, ssn) {
   alarm_name = document.getElementById("alarminput").value;
+  //I need to save sites here in a template literal somehow...
+  let str = "";
+  site_list = `${(function fun() {
+    for (let i = 0; i < ssn.length; i++) {
+      str += `${ssn[i]}(${cs[i]})\n`;
+    }
+    return str;
+  })()}`;
   let alarm_text = `${today}
-نام سایت: ${ssn}
-کدسایت: ${cs}
-آلارم: ${alarm_name}
+${site_list}آلارم: ${alarm_name}
 زمان: ${alarmtime}
 گزارش به ${reportedto}
 مانیتورینگ: ${monitoring}
 `;
-  console.log(alarm_text);
   document.getElementById("pre_modal").innerHTML = alarm_text;
   $("#myModal").modal();
-  console.log(alarm_text);
   const copyToClipboard = (str) => {
     const el = document.createElement("textarea");
     el.value = str;

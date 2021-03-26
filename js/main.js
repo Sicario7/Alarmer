@@ -107,8 +107,9 @@ function text_maker(cs, ssn) {
   let str = "";
   site_list = `${(function nametocode_appender() {
     for (let i = 0; i < ssn.length; i++) {
-      str += `${[i]}(${cs[i]})\n`;
+      str += `${ssn[i]}(${cs[i]})\n`;
     }
+    console.log(str);
     return str;
   })()}`;
   //want inf?!

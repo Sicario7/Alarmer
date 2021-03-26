@@ -78,7 +78,7 @@ body {
   }
 }
 footer {
-  position: absolute;
+  /* position: absolute; */
   width: 20%;
   bottom: 0;
   right: -20px;

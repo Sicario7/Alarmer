@@ -1,5 +1,4 @@
 "strict-mode";
-
 var names = [];
 var codes = [];
 let selected_site_name = [];
@@ -13,8 +12,7 @@ let alarmtime = document.getElementById("timesel").value;
 let codesite = document.getElementById("site_code").value;
 let reportedto = document.getElementById("rep_to").value;
 let monitoring = document.getElementById("monitoring").value;
-// document.getElementById("submitb").addEventListener("click", function () {});
-// End of btn click actions
+let more_inf = document.getElementById("more").value;
 //auto-complete of alarms field
 $(function () {
   var alarmtags = [
@@ -49,11 +47,20 @@ $(function () {
     "آقای خوانساری",
     "آقای علیزاده",
   ];
+  var moretags = [
+    "قطعی برق منطقه",
+    "PM-SITE",
+    "در حال بررسی",
+    "ناپایداری لینک انتقال",
+  ];
   $("#alarminput").autocomplete({
     source: alarmtags,
   });
   $("#rep_to").autocomplete({
     source: nametags,
+  });
+  $("#more").autocomplete({
+    source: moretags,
   });
 });
 // when clicking preview button:
@@ -62,6 +69,7 @@ document.getElementById("preview").addEventListener("click", function () {
   codesite = document.getElementById("site_code").value;
   reportedto = document.getElementById("rep_to").value;
   monitoring = document.getElementById("monitoring").value;
+  more_inf = document.getElementById("more").value;
   let seperated_sites_arr = codesite.split(" ");
   ES_er(seperated_sites_arr);
   function ES_er(arraye) {
@@ -74,43 +82,49 @@ document.getElementById("preview").addEventListener("click", function () {
     for (let i = 0; i < jsonlen; i++) {
       names[i] = json[i].name;
       codes[i] = json[i].code;
-      // if (ES_site == codes[i]) {
-      //   selected_site_name = names[i];
-      //   break;
-      // }
-      // }
-      // if (!selected_site_name) {
-      //   selected_site_name = "کد سایت اشتباه/ناموجود";
     }
+    //Checks site codes and returns corresponding names
     name_searcher(ES_site, names, codes);
     text_maker(ES_site, selected_site_name);
   });
 });
 function name_searcher(input_codesites, name_database, code_database) {
   for (let a = 0; a < input_codesites.length; a++) {
-    //loop through input sites
     for (let b = 0; b < code_database.length; b++) {
-      // console.log(input_codesites[a], code_database[b]);
       if (input_codesites[a] == code_database[b]) {
         selected_site_name[a] = name_database[b];
+      } else {
+        if (!selected_site_name[a]) {
+          selected_site_name[a] = "کد سایت اشتباه/ناموجود";
+        }
       }
     }
   }
 }
+
 function text_maker(cs, ssn) {
   alarm_name = document.getElementById("alarminput").value;
-  //I need to save sites here in a template literal somehow...
   let str = "";
-  site_list = `${(function fun() {
+  site_list = `${(function nametocode_appender() {
     for (let i = 0; i < ssn.length; i++) {
-      str += `${ssn[i]}(${cs[i]})\n`;
+      str += `${[i]}(${cs[i]})\n`;
+    }
+    return str;
+  })()}`;
+  //want inf?!
+  info_list = `${(function info_visibility() {
+    if (!more_inf) {
+      //when no inf
+      return "";
+    } else {
+      return `${more_inf}\n`;
     }
     return str;
   })()}`;
   let alarm_text = `${today}
 ${site_list}آلارم: ${alarm_name}
 زمان: ${alarmtime}
-گزارش به ${reportedto}
+${info_list}گزارش به ${reportedto}
 مانیتورینگ: ${monitoring}
 `;
   document.getElementById("pre_modal").innerHTML = alarm_text;
@@ -122,6 +136,7 @@ ${site_list}آلارم: ${alarm_name}
     el.select();
     document.execCommand("copy");
     document.body.removeChild(el);
+    selected_site_name = [];
   };
   copyToClipboard(alarm_text);
 }

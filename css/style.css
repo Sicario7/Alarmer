@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: times;
-  src: url("Times");
+  src: url("../timesnewroman.ttf");
 }
 body {
   height: 100%;
@@ -12,7 +12,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background: linear-gradient(to top left, #28b487, #7dd56f) fixed;
-  /* background-image: url("../1_3HRiHAPF7jhADG8x6iahFA.jpg"); */
 }
 * {
   font-family: koodakfont;
@@ -49,10 +48,6 @@ pre {
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
-.button:hover {
-  background-color: #3e8e41;
-}
-
 .button:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
@@ -64,4 +59,21 @@ pre {
 }
 #developer {
   font-size: 0.7vw;
+}
+body {
+  background: linear-gradient(-45deg, #ee7752, #3bce3b, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

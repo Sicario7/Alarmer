@@ -28,6 +28,7 @@ $(function () {
     "Power supply DC Output Out Of Range",
     "Low Battery",
     "Door Open",
+    "ریست سکتور",
   ];
   var nametags = [
     "آقای کاوه",
@@ -63,6 +64,7 @@ $(function () {
     source: moretags,
   });
 });
+let seperated_sites_arr = [];
 // when clicking preview button:
 document.getElementById("preview").addEventListener("click", function () {
   alarmtime = document.getElementById("timesel").value;
@@ -70,7 +72,7 @@ document.getElementById("preview").addEventListener("click", function () {
   reportedto = document.getElementById("rep_to").value;
   monitoring = document.getElementById("monitoring").value;
   more_inf = document.getElementById("more").value;
-  let seperated_sites_arr = codesite.split(" ");
+  seperated_sites_arr = codesite.split(" ");
   ES_er(seperated_sites_arr);
   function ES_er(arraye) {
     for (let j = 0; j < arraye.length; j++) {
@@ -107,9 +109,8 @@ function text_maker(cs, ssn) {
   let str = "";
   site_list = `${(function nametocode_appender() {
     for (let i = 0; i < ssn.length; i++) {
-      str += `${ssn[i]}(${cs[i]})\n`;
+      str += `${ssn[i]} - ${seperated_sites_arr[i]}\n`;
     }
-    console.log(str);
     return str;
   })()}`;
   //want inf?!
@@ -122,12 +123,21 @@ function text_maker(cs, ssn) {
     }
     return str;
   })()}`;
+  info_list = `${(function reportedto_visibility() {
+    if (!reportedto) {
+      //when no reporting
+      return "";
+    } else {
+      return `گزارش به ${more_inf}\n`;
+    }
+    return str;
+  })()}`;
   let alarm_text = `${today}
 ${site_list}آلارم: ${alarm_name}
-زمان: ${alarmtime}
-${info_list}گزارش به ${reportedto}
+زمان: ${alarmtime}${info_list}${reportedto}
 مانیتورینگ: ${monitoring}
 `;
+
   document.getElementById("pre_modal").innerHTML = alarm_text;
   $("#myModal").modal();
   const copyToClipboard = (str) => {
@@ -136,8 +146,16 @@ ${info_list}گزارش به ${reportedto}
     document.body.appendChild(el);
     el.select();
     document.execCommand("copy");
+
     document.body.removeChild(el);
-    selected_site_name = [];
   };
   copyToClipboard(alarm_text);
+  clear_all();
+  function clear_all() {
+    // site_list.length = 0;
+    // ssn.length = 0;
+    selected_site_name.length = 0;
+    // seperated_sites_arr.length = 0;
+    ES_site.length = 0;
+  }
 }

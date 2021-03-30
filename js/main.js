@@ -119,23 +119,23 @@ function text_maker(cs, ssn) {
       //when no inf
       return "";
     } else {
-      return `${more_inf}\n`;
+      return `شرح: ${more_inf}\n`;
     }
     return str;
   })()}`;
-  info_list = `${(function reportedto_visibility() {
+  reportedto = `${(function reportedto_visibility() {
     if (!reportedto) {
       //when no reporting
       return "";
     } else {
-      return `گزارش به ${more_inf}\n`;
+      return `گزارش به ${reportedto}\n`;
     }
     return str;
   })()}`;
   let alarm_text = `${today}
 ${site_list}آلارم: ${alarm_name}
-زمان: ${alarmtime}${info_list}${reportedto}
-مانیتورینگ: ${monitoring}
+زمان: ${alarmtime}
+${info_list}${reportedto}مانیتورینگ: ${monitoring}
 `;
 
   document.getElementById("pre_modal").innerHTML = alarm_text;

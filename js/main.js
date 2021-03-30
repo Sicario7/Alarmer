@@ -76,6 +76,7 @@ document.getElementById("clear").addEventListener("click", function () {
   document.getElementById("rep_to").value = "";
   document.getElementById("monitoring").value = "";
   document.getElementById("more").value = "";
+  alarm_name = document.getElementById("alarminput").value = "";
 });
 // when clicking preview button:
 document.getElementById("preview").addEventListener("click", function () {

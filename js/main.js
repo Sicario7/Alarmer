@@ -146,7 +146,6 @@ ${info_list}${reportedto}مانیتورینگ: ${monitoring}
     document.body.appendChild(el);
     el.select();
     document.execCommand("copy");
-
     document.body.removeChild(el);
   };
   copyToClipboard(alarm_text);

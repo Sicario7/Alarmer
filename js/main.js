@@ -13,6 +13,7 @@ let codesite = document.getElementById("site_code").value;
 let reportedto = document.getElementById("rep_to").value;
 let monitoring = document.getElementById("monitoring").value;
 let more_inf = document.getElementById("more").value;
+
 //auto-complete of alarms field
 $(function () {
   var alarmtags = [
@@ -65,6 +66,17 @@ $(function () {
   });
 });
 let seperated_sites_arr = [];
+document.getElementById("copybutton").addEventListener("click", function () {
+  document.getElementById("copybutton").innerHTML = "کپی شد!";
+});
+
+document.getElementById("clear").addEventListener("click", function () {
+  document.getElementById("timesel").value = "";
+  document.getElementById("site_code").value = "";
+  document.getElementById("rep_to").value = "";
+  document.getElementById("monitoring").value = "";
+  document.getElementById("more").value = "";
+});
 // when clicking preview button:
 document.getElementById("preview").addEventListener("click", function () {
   alarmtime = document.getElementById("timesel").value;
@@ -139,6 +151,7 @@ ${info_list}${reportedto}مانیتورینگ: ${monitoring}
 `;
 
   document.getElementById("pre_modal").innerHTML = alarm_text;
+  document.getElementById("copybutton").innerHTML = "کپی!";
   $("#myModal").modal();
   const copyToClipboard = (str) => {
     const el = document.createElement("textarea");
@@ -149,12 +162,9 @@ ${info_list}${reportedto}مانیتورینگ: ${monitoring}
     document.body.removeChild(el);
   };
   copyToClipboard(alarm_text);
-  clear_all();
-  function clear_all() {
-    // site_list.length = 0;
-    // ssn.length = 0;
+  clear_cache();
+  function clear_cache() {
     selected_site_name.length = 0;
-    // seperated_sites_arr.length = 0;
     ES_site.length = 0;
   }
 }

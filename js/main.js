@@ -20,6 +20,7 @@ $(function () {
     "Ac Fail",
     "قطعی سایت",
     "ریست سایت",
+    "Ac Fail - Module Fail",
     "Module Fail",
     "Module Fail>2",
     "Ac Fail - Module Fail - Module Fail>2",
@@ -30,6 +31,9 @@ $(function () {
     "Low Battery",
     "Door Open",
     "ریست سکتور",
+    "ریست GSM",
+    "ریست LTE",
+    "Cell Logical Channel Failure",
   ];
   var nametags = [
     "آقای کاوه",
@@ -48,12 +52,14 @@ $(function () {
     "آقای فریدونی",
     "آقای خوانساری",
     "آقای علیزاده",
+    "آقای ایزدی",
   ];
   var moretags = [
     "قطعی برق منطقه",
     "PM-SITE",
     "در حال بررسی",
     "ناپایداری لینک انتقال",
+    "اعزام کارشناس",
   ];
   $("#alarminput").autocomplete({
     source: alarmtags,

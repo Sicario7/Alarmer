@@ -19,7 +19,7 @@ $(function () {
     "Module Fail",
     "Module Fail>2",
     "Ac Fail - Module Fail - Module Fail>2",
-    "Rf Unit Maintenance Link Failure",
+    "RF Unit Maintenance Link Failure",
     "High Tempereture",
     "NE Is Disconnected",
     "Power supply DC Output Out Of Range",
@@ -152,12 +152,14 @@ function text_maker(cs, ssn) {
     }
     return str;
   })()}`;
+  if (!codesite) {
+    site_list = "کدسایتی وارد نشده است !🤐\n";
+  }
   let alarm_text = `${today}
 ${site_list}آلارم: ${alarm_name}
 زمان: ${alarmtime}
 ${info_list}${reportedto}مانیتورینگ: ${monitoring}
 `;
-
   document.getElementById("pre_modal").innerHTML = alarm_text;
   document.getElementById("copybutton").innerHTML = "کپی!";
   $("#myModal").modal();

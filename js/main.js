@@ -3,11 +3,6 @@ var names = [];
 var codes = [];
 let selected_site_name = [];
 let ES_site = [];
-let today = new Date()
-  .toLocaleDateString("fa-IR")
-  .replace(/([۰-۹])/g, (token) =>
-    String.fromCharCode(token.charCodeAt(0) - 1728)
-  );
 let alarmtime = document.getElementById("timesel").value;
 let codesite = document.getElementById("site_code").value;
 let reportedto = document.getElementById("rep_to").value;
@@ -91,7 +86,8 @@ document.getElementById("preview").addEventListener("click", function () {
   reportedto = document.getElementById("rep_to").value;
   monitoring = document.getElementById("monitoring").value;
   more_inf = document.getElementById("more").value;
-  seperated_sites_arr = codesite.split(" ");
+  seperated_sites_arr = codesite.trim().split(/\s+/);
+  console.log(seperated_sites_arr.length);
   ES_er(seperated_sites_arr);
   function ES_er(arraye) {
     for (let j = 0; j < arraye.length; j++) {
@@ -124,6 +120,11 @@ function name_searcher(input_codesites, name_database, code_database) {
 }
 
 function text_maker(cs, ssn) {
+  let today = new Date()
+    .toLocaleDateString("fa-IR")
+    .replace(/([۰-۹])/g, (token) =>
+      String.fromCharCode(token.charCodeAt(0) - 1728)
+    );
   alarm_name = document.getElementById("alarminput").value;
   let str = "";
   site_list = `${(function nametocode_appender() {

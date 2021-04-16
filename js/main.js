@@ -87,7 +87,6 @@ document.getElementById("preview").addEventListener("click", function () {
   monitoring = document.getElementById("monitoring").value;
   more_inf = document.getElementById("more").value;
   seperated_sites_arr = codesite.trim().split(/\s+/);
-  console.log(seperated_sites_arr.length);
   ES_er(seperated_sites_arr);
   function ES_er(arraye) {
     for (let j = 0; j < arraye.length; j++) {
@@ -112,7 +111,7 @@ function name_searcher(input_codesites, name_database, code_database) {
         selected_site_name[a] = name_database[b];
       } else {
         if (!selected_site_name[a]) {
-          selected_site_name[a] = "کد سایت اشتباه/ناموجود";
+          selected_site_name[a] = "کد سایت اشتباه/ناموجود⭐";
         }
       }
     }
@@ -152,7 +151,7 @@ function text_maker(cs, ssn) {
     }
     return str;
   })()}`;
-  if (!codesite) {
+  if (!codesite.trim()) {
     site_list = "کدسایتی وارد نشده است !🤐\n";
   }
   let alarm_text = `${today}

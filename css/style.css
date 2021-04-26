@@ -100,3 +100,8 @@ footer a:hover {
 #site_code {
   direction: ltr;
 }
+#clear:active {
+  background-color: #c52e1a;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

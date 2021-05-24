@@ -142,7 +142,6 @@ function text_maker(cs, ssn) {
     } else {
       return `شرح: ${more_inf}\n`;
     }
-    return str;
   })()}`;
   reportedto = `${(function reportedto_visibility() {
     if (!reportedto) {
@@ -151,7 +150,6 @@ function text_maker(cs, ssn) {
     } else {
       return `گزارش به ${reportedto}\n`;
     }
-    return str;
   })()}`;
   //////////////////////////////////////////////////
   siteha = `${(function siteha() {
@@ -166,8 +164,8 @@ function text_maker(cs, ssn) {
   if (!codesite.trim()) {
     site_list = "کدسایتی وارد نشده است !🤐\n";
   }
-  let alarm_text = `${today}
-  ${siteha}${site_list}آلارم: ${alarm_name}
+  console.log(site_list);
+  let alarm_text = `${today}\n${siteha}${site_list}آلارم: ${alarm_name}
 زمان: ${alarmtime}
 ${info_list}${reportedto}مانیتورینگ: ${monitoring}
 `;

@@ -29,6 +29,7 @@ $(function () {
     "ریست GSM",
     "ریست LTE",
     "Cell Logical Channel Failure",
+    "VSWR - BAND:XXXX - SECTOR:Y - MAIN/DIVER - Value: X.Y",
   ];
   var nametags = [
     "آقای کاوه",
@@ -52,9 +53,10 @@ $(function () {
   var moretags = [
     "قطعی برق منطقه",
     "PM-SITE",
-    "در حال بررسی",
+    "در حال پیگیری",
     "ناپایداری لینک انتقال",
     "اعزام کارشناس",
+    "CR#Number - موضوع - از ساعت XX الی YY - انجام دهنده: XXXX",
   ];
   $("#alarminput").autocomplete({
     source: alarmtags,
@@ -151,11 +153,21 @@ function text_maker(cs, ssn) {
     }
     return str;
   })()}`;
+  //////////////////////////////////////////////////
+  siteha = `${(function siteha() {
+    printing_sites = seperated_sites_arr.length;
+    if (printing_sites < 2) {
+      return "";
+    } else {
+      return `سایت های:\n`;
+    }
+  })()}`;
+  ////////////////////////////////////////////////
   if (!codesite.trim()) {
     site_list = "کدسایتی وارد نشده است !🤐\n";
   }
   let alarm_text = `${today}
-${site_list}آلارم: ${alarm_name}
+  ${siteha}${site_list}آلارم: ${alarm_name}
 زمان: ${alarmtime}
 ${info_list}${reportedto}مانیتورینگ: ${monitoring}
 `;

@@ -4,11 +4,31 @@ var codes = [];
 let selected_site_name = [];
 let ES_site = [];
 let alarmtime = document.getElementById("timesel").value;
-let codesite = document.getElementById("site_code").value;
 let reportedto = document.getElementById("rep_to").value;
 let monitoring = document.getElementById("monitoring").value;
 let more_inf = document.getElementById("more").value;
 
+// convert persian digits [۰۱۲۳۴۵۶۷۸۹]
+// var persianNumbers = [
+//   /۰/g,
+//   /۱/g,
+//   /۲/g,
+//   /۳/g,
+//   /۴/g,
+//   /۵/g,
+//   /۶/g,
+//   /۷/g,
+//   /۸/g,
+//   /۹/g,
+// ];
+// function fixNumbers(str) {
+//   if (typeof str === "string") {
+//     for (var i = 0; i < 10; i++) {
+//       str = str.replace(persianNumbers[i], i);
+//     }
+//   }
+//   return str;
+// }
 //auto-complete of alarms field
 $(function () {
   var alarmtags = [
@@ -20,12 +40,12 @@ $(function () {
     "Module Fail>2",
     "Ac Fail - Module Fail - Module Fail>2",
     "RF Unit Maintenance Link Failure",
-    "High Tempereture",
+    "High Temperature",
     "NE Is Disconnected",
     "Power supply DC Output Out Of Range",
     "Low Battery",
     "Door Open",
-    "ریست سکتور",
+    "Battery Low Voltage",
     "ریست GSM",
     "ریست LTE",
     "Cell Logical Channel Failure",
@@ -70,15 +90,15 @@ $(function () {
 });
 let seperated_sites_arr = [];
 document.getElementById("copybutton").addEventListener("click", function () {
-  document.getElementById("copybutton").innerHTML = "کپی شد!";
+  document.getElementById("copybutton").textContent = "کپی شد!";
 });
 
 document.getElementById("clear").addEventListener("click", function () {
-  document.getElementById("timesel").value = "";
+  alarmtime = "";
   document.getElementById("site_code").value = "";
-  document.getElementById("rep_to").value = "";
-  document.getElementById("monitoring").value = "";
-  document.getElementById("more").value = "";
+  reportedto = "";
+  monitoring = "";
+  more_inf = "";
   alarm_name = document.getElementById("alarminput").value = "";
 });
 // when clicking preview button:
@@ -126,6 +146,12 @@ function text_maker(cs, ssn) {
     .replace(/([۰-۹])/g, (token) =>
       String.fromCharCode(token.charCodeAt(0) - 1728)
     );
+  seperator = today.split("/");
+  today = `${seperator[0]}/${seperator[1].padStart(
+    2,
+    "0"
+  )}/${seperator[2].padStart(2, "0")}`;
+
   alarm_name = document.getElementById("alarminput").value;
   let str = "";
   site_list = `${(function nametocode_appender() {
@@ -164,13 +190,12 @@ function text_maker(cs, ssn) {
   if (!codesite.trim()) {
     site_list = "کدسایتی وارد نشده است !🤐\n";
   }
-  console.log(site_list);
   let alarm_text = `${today}\n${siteha}${site_list}آلارم: ${alarm_name}
 زمان: ${alarmtime}
 ${info_list}${reportedto}مانیتورینگ: ${monitoring}
 `;
-  document.getElementById("pre_modal").innerHTML = alarm_text;
-  document.getElementById("copybutton").innerHTML = "کپی!";
+  document.getElementById("pre_modal").textContent = alarm_text;
+  document.getElementById("copybutton").textContent = "کپی!";
   $("#myModal").modal();
   const copyToClipboard = (str) => {
     const el = document.createElement("textarea");

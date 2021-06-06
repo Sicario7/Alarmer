@@ -11,7 +11,6 @@ body {
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background: linear-gradient(to top left, #28b487, #7dd56f) fixed;
 }
 * {
   font-family: Yekanfont;
@@ -58,7 +57,7 @@ pre {
   font-size: 1.2em;
 }
 body {
-  background: linear-gradient(-45deg, #ee7752, #3bce3b, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #11998e, #38ef7d, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }

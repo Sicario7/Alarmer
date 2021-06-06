@@ -94,12 +94,12 @@ document.getElementById("copybutton").addEventListener("click", function () {
 });
 
 document.getElementById("clear").addEventListener("click", function () {
-  alarmtime = "";
   document.getElementById("site_code").value = "";
-  reportedto = "";
-  monitoring = "";
-  more_inf = "";
-  alarm_name = document.getElementById("alarminput").value = "";
+  document.getElementById("alarminput").value = "";
+  document.getElementById("timesel").value = "";
+  document.getElementById("more").value = "";
+  document.getElementById("rep_to").value = "";
+  document.getElementById("monitoring").value = "";
 });
 // when clicking preview button:
 document.getElementById("preview").addEventListener("click", function () {

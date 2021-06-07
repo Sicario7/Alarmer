@@ -7,28 +7,10 @@ let alarmtime = document.getElementById("timesel").value;
 let reportedto = document.getElementById("rep_to").value;
 let monitoring = document.getElementById("monitoring").value;
 let more_inf = document.getElementById("more").value;
+$(".selector").tooltip({
+  position: { my: "left+10 center", at: "left center" },
+});
 
-// convert persian digits [۰۱۲۳۴۵۶۷۸۹]
-// var persianNumbers = [
-//   /۰/g,
-//   /۱/g,
-//   /۲/g,
-//   /۳/g,
-//   /۴/g,
-//   /۵/g,
-//   /۶/g,
-//   /۷/g,
-//   /۸/g,
-//   /۹/g,
-// ];
-// function fixNumbers(str) {
-//   if (typeof str === "string") {
-//     for (var i = 0; i < 10; i++) {
-//       str = str.replace(persianNumbers[i], i);
-//     }
-//   }
-//   return str;
-// }
 //auto-complete of alarms field
 $(function () {
   var alarmtags = [
@@ -99,7 +81,9 @@ document.getElementById("clear").addEventListener("click", function () {
   document.getElementById("timesel").value = "";
   document.getElementById("more").value = "";
   document.getElementById("rep_to").value = "";
-  document.getElementById("monitoring").value = "";
+  if (document.getElementById("fixed_monitoring").checked === false) {
+    document.getElementById("monitoring").value = "";
+  }
 });
 // when clicking preview button:
 document.getElementById("preview").addEventListener("click", function () {
@@ -181,7 +165,7 @@ function text_maker(cs, ssn) {
   siteha = `${(function siteha() {
     printing_sites = seperated_sites_arr.length;
     if (printing_sites < 2) {
-      return "";
+      return "سایت: ";
     } else {
       return `سایت های:\n`;
     }

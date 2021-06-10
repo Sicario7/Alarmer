@@ -21,6 +21,7 @@ $(function () {
     "Module Fail",
     "Module Fail>2",
     "Ac Fail - Module Fail - Module Fail>2",
+    "Ac Fail - Module Fail - Module Fail>2 - High Temperature",
     "RF Unit Maintenance Link Failure",
     "High Temperature",
     "NE Is Disconnected",
@@ -31,7 +32,7 @@ $(function () {
     "ریست GSM",
     "ریست LTE",
     "Cell Logical Channel Failure",
-    "VSWR - BAND:XXXX - SECTOR:Y - MAIN/DIVER - Value: X.Y",
+    "VSWR - BAND:BBBB - SECTOR:Y - MAIN/DIVER - Value: X.Y",
   ];
   var nametags = [
     "آقای کاوه",
@@ -81,9 +82,7 @@ document.getElementById("clear").addEventListener("click", function () {
   document.getElementById("timesel").value = "";
   document.getElementById("more").value = "";
   document.getElementById("rep_to").value = "";
-  if (document.getElementById("fixed_monitoring").checked === false) {
-    document.getElementById("monitoring").value = "";
-  }
+  document.getElementById("monitoring").value = "";
 });
 // when clicking preview button:
 document.getElementById("preview").addEventListener("click", function () {
@@ -163,20 +162,28 @@ function text_maker(cs, ssn) {
   })()}`;
   //////////////////////////////////////////////////
   siteha = `${(function siteha() {
-    printing_sites = seperated_sites_arr.length;
-    if (printing_sites < 2) {
+    if (seperated_sites_arr.length < 2) {
       return "سایت: ";
     } else {
       return `سایت های:\n`;
     }
   })()}`;
   ////////////////////////////////////////////////
+  IsMonitorong = `${(function IsMonitorong() {
+    if (document.getElementById("fixed_monitoring").checked === false) {
+      return "";
+    } else {
+      return "مانیتورینگ: ";
+    }
+  })()}`;
+
+  ////////////////////////////////////////////////
   if (!codesite.trim()) {
     site_list = "کدسایتی وارد نشده است !🤐\n";
   }
   let alarm_text = `${today}\n${siteha}${site_list}آلارم: ${alarm_name}
 زمان: ${alarmtime}
-${info_list}${reportedto}مانیتورینگ: ${monitoring}
+${info_list}${reportedto}${IsMonitorong}${monitoring}
 `;
   document.getElementById("pre_modal").textContent = alarm_text;
   document.getElementById("copybutton").textContent = "کپی!";

@@ -1,16 +1,24 @@
 "strict-mode";
-var names = [];
-var codes = [];
+const names = [],
+  codes = [];
 let selected_site_name = [];
 let ES_site = [];
-let alarmtime = document.getElementById("timesel").value;
-let reportedto = document.getElementById("rep_to").value;
-let monitoring = document.getElementById("monitoring").value;
-let more_inf = document.getElementById("more").value;
-$(".selector").tooltip({
-  position: { my: "left+10 center", at: "left center" },
-});
+let alarm_text;
+let codeNOES = [];
+// Can I delete this part?
+// let alarmtime = document.getElementById("timesel").value;
+// let reportedto = document.getElementById("rep_to").value;
+// let monitoring = document.getElementById("monitoring").value;
+// let more_inf = document.getElementById("more").value;
 
+// Is it possible to read data in here?!
+$.getJSON("data.json", function (json) {
+  for (let i = 0; i < Object.keys(json).length; i++) {
+    names[i] = json[i].name;
+    codes[i] = json[i].code;
+  }
+});
+///////////////////////////////
 //auto-complete of alarms field
 $(function () {
   var alarmtags = [
@@ -21,7 +29,6 @@ $(function () {
     "Module Fail",
     "Module Fail>2",
     "Ac Fail - Module Fail - Module Fail>2",
-    "Ac Fail - Module Fail - Module Fail>2 - High Temperature",
     "RF Unit Maintenance Link Failure",
     "High Temperature",
     "NE Is Disconnected",
@@ -71,18 +78,22 @@ $(function () {
     source: moretags,
   });
 });
-let seperated_sites_arr = [];
-document.getElementById("copybutton").addEventListener("click", function () {
-  document.getElementById("copybutton").textContent = "کپی شد!";
-});
-
+///////////////////////////////
+const copyToClipboard = (str) => {
+  const el = document.createElement("textarea");
+  el.value = str;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand("copy");
+  document.body.removeChild(el);
+  console.log("Done");
+};
 document.getElementById("clear").addEventListener("click", function () {
   document.getElementById("site_code").value = "";
   document.getElementById("alarminput").value = "";
   document.getElementById("timesel").value = "";
   document.getElementById("more").value = "";
   document.getElementById("rep_to").value = "";
-  document.getElementById("monitoring").value = "";
 });
 // when clicking preview button:
 document.getElementById("preview").addEventListener("click", function () {
@@ -91,24 +102,16 @@ document.getElementById("preview").addEventListener("click", function () {
   reportedto = document.getElementById("rep_to").value;
   monitoring = document.getElementById("monitoring").value;
   more_inf = document.getElementById("more").value;
-  seperated_sites_arr = codesite.trim().split(/\s+/);
-  ES_er(seperated_sites_arr);
-  function ES_er(arraye) {
-    for (let j = 0; j < arraye.length; j++) {
-      ES_site[j] = `ES${arraye[j]}`;
-    }
-  }
-  $.getJSON("data.json", function (json) {
-    let jsonlen = Object.keys(json).length;
-    for (let i = 0; i < jsonlen; i++) {
-      names[i] = json[i].name;
-      codes[i] = json[i].code;
-    }
-    //Checks site codes and returns corresponding names
-    name_searcher(ES_site, names, codes);
-    text_maker(ES_site, selected_site_name);
-  });
+  codeNOES = codesite.trim().split(/\s+/);
+  ES_site = codeNOES.map((site) => `ES${site}`);
+
+  //Checks site codes and returns corresponding names
+  name_searcher(ES_site, names, codes);
+  //creates text
+  text_maker();
+  // });
 });
+// Better solution:
 function name_searcher(input_codesites, name_database, code_database) {
   for (let a = 0; a < input_codesites.length; a++) {
     for (let b = 0; b < code_database.length; b++) {
@@ -122,27 +125,37 @@ function name_searcher(input_codesites, name_database, code_database) {
     }
   }
 }
+function text_maker() {
+  const options = {
+    month: "2-digit",
+    day: "2-digit",
+    year: "numeric",
+  };
+  const today = Intl.DateTimeFormat("fa-IR", options).format(new Date());
 
-function text_maker(cs, ssn) {
-  let today = new Date()
-    .toLocaleDateString("fa-IR")
-    .replace(/([۰-۹])/g, (token) =>
-      String.fromCharCode(token.charCodeAt(0) - 1728)
-    );
-  seperator = today.split("/");
-  today = `${seperator[0]}/${seperator[1].padStart(
-    2,
-    "0"
-  )}/${seperator[2].padStart(2, "0")}`;
-
-  alarm_name = document.getElementById("alarminput").value;
+  //second, more campatible implemention
+  // let today = new Date()
+  //   .toLocaleDateString("fa-IR", options)
+  //   .replace(/([۰-۹])/g, (token) =>
+  //     String.fromCharCode(token.charCodeAt(0) - 1728)
+  //   );
+  // seperator = today.split("/");
+  // today = `${seperator[0]}/${seperator[1].padStart(
+  //   2,
+  //   "0"
+  // )}/${seperator[2].padStart(2, "0")}`;
+  ///////////////////////////////////////////////
   let str = "";
   site_list = `${(function nametocode_appender() {
-    for (let i = 0; i < ssn.length; i++) {
-      str += `${ssn[i]} - ${seperated_sites_arr[i]}\n`;
+    for (let i = 0; i < selected_site_name.length; i++) {
+      str += `${selected_site_name[i]} - ${codeNOES[i]}\n`;
     }
     return str;
   })()}`;
+  // Now preparing the final text
+  //////////////////ALARM////////////////////////
+  alarm_name = document.getElementById("alarminput").value;
+
   //want inf?!
   info_list = `${(function info_visibility() {
     if (!more_inf) {
@@ -152,6 +165,7 @@ function text_maker(cs, ssn) {
       return `شرح: ${more_inf}\n`;
     }
   })()}`;
+  ///////////////////////////////////////////////
   reportedto = `${(function reportedto_visibility() {
     if (!reportedto) {
       //when no reporting
@@ -162,7 +176,7 @@ function text_maker(cs, ssn) {
   })()}`;
   //////////////////////////////////////////////////
   siteha = `${(function siteha() {
-    if (seperated_sites_arr.length < 2) {
+    if (codeNOES.length < 2) {
       return "سایت: ";
     } else {
       return `سایت های:\n`;
@@ -181,25 +195,26 @@ function text_maker(cs, ssn) {
   if (!codesite.trim()) {
     site_list = "کدسایتی وارد نشده است !🤐\n";
   }
-  let alarm_text = `${today}\n${siteha}${site_list}آلارم: ${alarm_name}
+  alarm_text = `${today}\n${siteha}${site_list}آلارم: ${alarm_name}
 زمان: ${alarmtime}
-${info_list}${reportedto}${IsMonitorong}${monitoring}
-`;
+${info_list}${reportedto}${IsMonitorong}${monitoring}`;
+
+  copyToClipboard(alarm_text);
+
   document.getElementById("pre_modal").textContent = alarm_text;
   document.getElementById("copybutton").textContent = "کپی!";
   $("#myModal").modal();
-  const copyToClipboard = (str) => {
-    const el = document.createElement("textarea");
-    el.value = str;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand("copy");
-    document.body.removeChild(el);
-  };
-  copyToClipboard(alarm_text);
   clear_cache();
   function clear_cache() {
     selected_site_name.length = 0;
     ES_site.length = 0;
   }
 }
+$(".selector").tooltip({
+  position: { my: "left+10 center", at: "left center" },
+});
+
+document.getElementById("copybutton").addEventListener("click", function () {
+  // copyToClipboard(alarm_text);
+  document.getElementById("copybutton").textContent = "کپی شد!";
+});

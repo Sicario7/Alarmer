@@ -29,6 +29,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="css/style.css" />
+    <!--BEGIN RAYCHAT CODE-->
     <script type="text/javascript">
       !(function () {
         function t() {
@@ -37,14 +38,14 @@
             (t.async = !0),
             localStorage.getItem("rayToken")
               ? (t.src =
-                  "https://api.raychat.io/scripts/js/" +
+                  "https://app.raychat.io/scripts/js/" +
                   o +
                   "?rid=" +
                   localStorage.getItem("rayToken") +
                   "&href=" +
                   window.location.href)
               : (t.src =
-                  "https://api.raychat.io/scripts/js/" +
+                  "https://app.raychat.io/scripts/js/" +
                   o +
                   "?href=" +
                   window.location.href);
@@ -61,12 +62,13 @@
           : a.addEventListener("load", t, !1);
       })();
     </script>
+    <!--END RAYCHAT CODE-->
   </head>
   <body>
     <div class="container">
       <br />
       <h2>گزارشگر آلارم</h2>
-      <form>
+      <form class="Main_form">
         <label class="labels">کدسایت</label>
         <input
           type="search"

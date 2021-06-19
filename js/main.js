@@ -135,7 +135,7 @@ function text_maker() {
 
   //second, more campatible implemention
   let today = new Date()
-    .toLocaleDateString("fa-IR", options)
+    .toLocaleDateString("fa-IR")
     .replace(/([۰-۹])/g, (token) =>
       String.fromCharCode(token.charCodeAt(0) - 1728)
     );

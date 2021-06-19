@@ -126,24 +126,24 @@ function name_searcher(input_codesites, name_database, code_database) {
   }
 }
 function text_maker() {
-  const options = {
-    month: "2-digit",
-    day: "2-digit",
-    year: "numeric",
-  };
-  const today = Intl.DateTimeFormat("fa-IR", options).format(new Date());
+  // const options = {
+  //   month: "2-digit",
+  //   day: "2-digit",
+  //   year: "numeric",
+  // };
+  // const today = Intl.DateTimeFormat("fa-IR", options).format(new Date());
 
   //second, more campatible implemention
-  // let today = new Date()
-  //   .toLocaleDateString("fa-IR", options)
-  //   .replace(/([۰-۹])/g, (token) =>
-  //     String.fromCharCode(token.charCodeAt(0) - 1728)
-  //   );
-  // seperator = today.split("/");
-  // today = `${seperator[0]}/${seperator[1].padStart(
-  //   2,
-  //   "0"
-  // )}/${seperator[2].padStart(2, "0")}`;
+  let today = new Date()
+    .toLocaleDateString("fa-IR", options)
+    .replace(/([۰-۹])/g, (token) =>
+      String.fromCharCode(token.charCodeAt(0) - 1728)
+    );
+  seperator = today.split("/");
+  today = `${seperator[0]}/${seperator[1].padStart(
+    2,
+    "0"
+  )}/${seperator[2].padStart(2, "0")}`;
   ///////////////////////////////////////////////
   let str = "";
   site_list = `${(function nametocode_appender() {

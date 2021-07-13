@@ -20,7 +20,7 @@ body {
 }
 label {
   direction: rtl;
-  text-align: center;
+  text-align: right;
   align-items: right;
   align-self: right;
 }
@@ -55,7 +55,6 @@ pre {
 
 .labels {
   font-size: 1.2em;
-  width: auto;
 }
 body {
   background: linear-gradient(-45deg, #11998e, #38ef7d, #23a6d5, #23d5ab);
@@ -107,10 +106,4 @@ footer a:hover {
 }
 .ui-tooltip-content {
   font-size: 10pt;
-}
-.time {
-  display: inline-block;
-  vertical-align: top;
-  align-content: center;
-  width: 20%;
 }

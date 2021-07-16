@@ -5,6 +5,7 @@ let selected_site_name = [];
 let ES_site = [];
 let alarm_text;
 let codeNOES = [];
+var inf_state = "شرح";
 
 $.getJSON("data.json", function (json) {
   for (let i = 0; i < Object.keys(json).length; i++) {
@@ -83,7 +84,6 @@ const copyToClipboard = (str) => {
   el.select();
   document.execCommand("copy");
   document.body.removeChild(el);
-  console.log("Done");
 };
 function preview_Maker() {
   codesite = document.getElementById("site_code").value;
@@ -147,6 +147,15 @@ function name_searcher(input_codesites, name_database, code_database) {
     }
   }
 }
+var input = document.getElementById("sharh");
+input.addEventListener("change", function () {
+  if (this.checked) {
+    inf_state = "شرح";
+  } else {
+    inf_state = "علت";
+  }
+});
+
 function text_maker() {
   // const options = {
   //   month: "2-digit",
@@ -177,14 +186,13 @@ function text_maker() {
   // Now preparing the final text
   //////////////////ALARM////////////////////////
   alarm_name = document.getElementById("alarminput").value;
-
-  //want inf?!
+  ///////////////////////////////////////////////
   info_list = `${(function info_visibility() {
     if (!more_inf) {
       //when no inf
       return "";
     } else {
-      return `شرح: ${more_inf}\n`;
+      return `${inf_state}: ${more_inf}\n`;
     }
   })()}`;
   ///////////////////////////////////////////////
@@ -240,9 +248,6 @@ ${info_list}${reportedto}${IsMonitorong}${monitoring}`;
     ES_site.length = 0;
   }
 }
-$(".selector").tooltip({
-  position: { my: "left+10 center", at: "left center" },
-});
 document.getElementById("copybutton").addEventListener("click", function () {
   // copyToClipboard(alarm_text);
   document.getElementById("copybutton").textContent = "کپی شد!";

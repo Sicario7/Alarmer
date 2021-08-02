@@ -2,15 +2,18 @@
 const names = [],
   codes = [];
 let selected_site_name = [];
+let selected_site_coords = [];
 let ES_site = [];
 let alarm_text;
 let codeNOES = [];
+let coords = [];
 var inf_state = "شرح";
 
 $.getJSON("data.json", function (json) {
   for (let i = 0; i < Object.keys(json).length; i++) {
     names[i] = json[i].name;
     codes[i] = json[i].code;
+    coords.push([json[i].lat, json[i].long]);
   }
 });
 ///////////////////////////////
@@ -85,19 +88,36 @@ const copyToClipboard = (str) => {
   document.execCommand("copy");
   document.body.removeChild(el);
 };
+////////////////////////////////////////////////////////////////
 function preview_Maker() {
   codesite = document.getElementById("site_code").value;
   reportedto = document.getElementById("rep_to").value;
   monitoring = document.getElementById("monitoring").value;
   more_inf = document.getElementById("more").value;
-  codeNOES = codesite.trim().split(/\s+/);
-  ES_site = codeNOES.map((site) => `ES${site}`);
-  time1 = document.getElementById("time1").value;
-  time2 = document.getElementById("time2").value;
-  //Checks site codes and returns corresponding names
-  name_searcher(ES_site, names, codes);
+  time = document.getElementById("time").value;
+
+  DatabaseMaker();
   //creates text
   text_maker();
+}
+////////////////////////////////////////////////////////////////
+function DatabaseMaker() {
+  codesite = document.getElementById("site_code").value;
+  codeNOES = codesite.trim().split(/\s+/);
+  ES_site = codeNOES.map((site) => `ES${site}`);
+  //Checks site codes and returns corresponding names
+  for (let a = 0; a < ES_site.length; a++) {
+    for (let b = 0; b < codes.length; b++) {
+      if (ES_site[a] == codes[b]) {
+        selected_site_name[a] = names[b];
+        selected_site_coords[a] = coords[b];
+      } else {
+        if (!selected_site_name[a]) {
+          selected_site_name[a] = "کد سایت اشتباه/ناموجود⭐";
+        }
+      }
+    }
+  }
 }
 document.getElementById("clear").addEventListener("click", function () {
   document.getElementById("site_code").value = "";
@@ -118,35 +138,6 @@ document.getElementById("rep_to").addEventListener("keyup", function (e) {
     document.getElementById("preview").click();
   }
 });
-
-// document.querySelectorAll(".form-control").forEach((item) => {
-//   item.addEventListener("keyup", (e) => {
-//     if (e.keyCode === 13) {
-//       e.preventDefault();
-//       document.getElementById("preview").click();
-//     }
-//   });
-// });
-// preventing tab close and showing pop up menu
-window.addEventListener("beforeunload", function (e) {
-  e.preventDefault();
-  e.returnValue = "";
-});
-
-// Better solution:
-function name_searcher(input_codesites, name_database, code_database) {
-  for (let a = 0; a < input_codesites.length; a++) {
-    for (let b = 0; b < code_database.length; b++) {
-      if (input_codesites[a] == code_database[b]) {
-        selected_site_name[a] = name_database[b];
-      } else {
-        if (!selected_site_name[a]) {
-          selected_site_name[a] = "کد سایت اشتباه/ناموجود⭐";
-        }
-      }
-    }
-  }
-}
 var input = document.getElementById("sharh");
 input.addEventListener("change", function () {
   if (this.checked) {
@@ -214,12 +205,16 @@ function text_maker() {
   })()}`;
   ////////////////////////////////////////////////
   time_stamp = `${(function time_stamper() {
-    if (!time2.trim()) {
-      return time1;
-    } else {
-      return `${time1.trim()} الی ${time2.trim()}`;
-    }
+    return `${time}`;
   })()}`;
+
+  // time_stamp = `${(function time_stamper() {
+  //   if (!time2.trim()) {
+  //     return time1;
+  //   } else {
+  //     return `${time1.trim()} الی ${time2.trim()}`;
+  //   }
+  // })()}`;
   ////////////////////////////////////////////////
   IsMonitorong = `${(function IsMonitorong() {
     if (document.getElementById("fixed_monitoring").checked === false) {
@@ -234,7 +229,7 @@ function text_maker() {
     site_list = "کدسایتی وارد نشده است.\n";
   }
   alarm_text = `${today}\n${siteha}${site_list}آلارم: ${alarm_name}
-زمان: ${time_stamp}
+زمان آلارم: ${time_stamp}
 ${info_list}${reportedto}${IsMonitorong}${monitoring}`;
 
   copyToClipboard(alarm_text);
@@ -251,4 +246,11 @@ ${info_list}${reportedto}${IsMonitorong}${monitoring}`;
 document.getElementById("copybutton").addEventListener("click", function () {
   // copyToClipboard(alarm_text);
   document.getElementById("copybutton").textContent = "کپی شد!";
+});
+// Map
+document.getElementById("showonmap").addEventListener("click", function () {
+  localStorage.removeItem("coords");
+  DatabaseMaker();
+  localStorage.setItem("coords", selected_site_coords);
+  window.open("Map.html", "_blank");
 });

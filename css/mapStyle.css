@@ -1,0 +1,24 @@
+@font-face {
+  font-family: Yekanfont;
+  src: url("../BYekan.ttf");
+}
+@font-face {
+  font-family: times;
+  src: url("../timesnewroman.ttf");
+}
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+* {
+  font-family: Yekanfont;
+  align-content: center;
+  text-align: center;
+  direction: rtl;
+}
+
+#map {
+  height: 700px;
+}

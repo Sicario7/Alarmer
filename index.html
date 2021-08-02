@@ -4,7 +4,7 @@
     <title>Alarm Reporter™</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="Alarm.jpg" />
+    <link rel="icon" href="Alarm.png" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
       integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -33,8 +33,8 @@
     ></script>
 
     <!-- //////////////////////////////////////////////////////////////////////// -->
-    <!-- <script defer src="js/main.js"></script> -->
-    <script defer src="js/min_main.js"></script>
+    <script defer src="js/main.js"></script>
+    <!-- <script defer src="js/min_main.js"></script> -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- //////////////////////////////////////////////////////////////////////// -->
 
@@ -91,6 +91,7 @@
           id="site_code"
           placeholder="کدسایت ها با فاصله مثل 0011 0123 1428"
         />
+
         <label class="labels">آلارم</label>
         <input
           type="text"
@@ -98,12 +99,9 @@
           id="alarminput"
           placeholder=""
         />
-        <br />
 
-        <label class="labels">زمان:</label>
-        <input type="text" class="form-control time" id="time1" />
-        الی
-        <input type="text" class="form-control time" id="time2" />
+        <label class="labels"> زمان آلارم</label>
+        <input type="text" class="form-control time" id="time" />
         <br />
         <br />
 
@@ -135,6 +133,14 @@
           placeholder=""
         />
         <br />
+        <button
+          type="button"
+          class="btn btn-light"
+          id="showonmap"
+          class="btn btn-info"
+        >
+          نمایش روی نقشه 📌
+        </button>
         <button type="button" class="btn btn-warning" id="clear">
           پاک کردن ❌
         </button>
@@ -197,6 +203,8 @@
         </div>
       </div>
     </div>
+    <!-- ///////// -->
+
     <footer>
       <br />
       <br />

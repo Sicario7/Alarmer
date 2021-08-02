@@ -124,8 +124,7 @@ document.getElementById("clear").addEventListener("click", function () {
   document.getElementById("alarminput").value = "";
   document.getElementById("more").value = "";
   document.getElementById("rep_to").value = "";
-  document.getElementById("time1").value = "";
-  document.getElementById("time2").value = "";
+  document.getElementById("time").value = "";
 });
 // when clicking preview button:
 document.getElementById("preview").addEventListener("click", function () {

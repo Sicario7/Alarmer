@@ -12,7 +12,7 @@ function initmap() {
 
   L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
     attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      'Made By YB, Map from &copy;<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
 
   // L.marker([32.674675, 51.652872]).addTo(map).bindPopup("ES0015").openPopup();

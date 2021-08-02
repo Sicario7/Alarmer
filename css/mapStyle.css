@@ -1,27 +1,10 @@
-/* @font-face {
-  font-family: Yekanfont;
-  src: url("../BYekan.ttf");
-}
-@font-face {
-  font-family: times;
-  src: url("../timesnewroman.ttf");
-} */
 html,
 body {
   height: 100%;
   overflow: hidden;
   width: 100%;
 }
-
-/* * {
-  font-family: Yekanfont;
-  align-content: center;
-  text-align: center;
-  direction: rtl;
-} */
-
 #map {
-  height: 700px;
   width: auto;
   height: 100%;
 }

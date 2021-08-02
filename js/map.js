@@ -14,11 +14,9 @@ function initmap() {
     attribution:
       'Made By YB, Map from &copy;<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
-
-  // L.marker([32.674675, 51.652872]).addTo(map).bindPopup("ES0015").openPopup();
 }
 function localStorage_reader() {
-  for (let i = 0; i < Math.trunc(coordinations.length / 2); i++) {
+  for (let i = 0; i < coordinations.length / 2; i++) {
     coords_arr.push([coordinations[i * 2], coordinations[i * 2 + 1]]);
   }
 }
@@ -29,4 +27,10 @@ function Onmap_marker(coords) {
     // L.marker(coords[i]).addTo(map).bindPopup("ES0015").openPopup();
     L.marker(coords[i]).addTo(map);
   }
+  var circle = L.circle([32.675, 51.65322], {
+    color: "green",
+    fillColor: "#2553",
+    fillOpacity: 0.5,
+    radius: 20,
+  }).addTo(map);
 }

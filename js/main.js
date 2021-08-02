@@ -16,6 +16,8 @@ $.getJSON("data.json", function (json) {
     coords.push([json[i].lat, json[i].long]);
   }
 });
+$('[data-toggle="tooltip"]').tooltip();
+
 ///////////////////////////////
 //auto-complete of alarms field
 $(function () {
@@ -248,8 +250,12 @@ document.getElementById("copybutton").addEventListener("click", function () {
 });
 // Map
 document.getElementById("showonmap").addEventListener("click", function () {
-  localStorage.removeItem("coords");
   DatabaseMaker();
+  localStorage.clear();
   localStorage.setItem("coords", selected_site_coords);
   window.open("Map.html", "_blank");
+  console.log(selected_site_coords);
 });
+// const hadis = fetch("https://api.keybit.ir/hadis/");
+// console.log(hadis);
+// document.getElementById("hadith").textContent = hadis;

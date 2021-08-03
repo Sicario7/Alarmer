@@ -8,3 +8,27 @@ body {
   width: auto;
   height: 100%;
 }
+/* .pop_up {
+  font-weight: bold;
+  color: blue;
+  background-color: red;
+} */
+.leaflet-popup-content-wrapper {
+  height: 2em;
+  background-color: cornsilk;
+  font-weight: bold;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+  margin-top: 0.2rem;
+}
+
+.leaflet-popup-tip-container {
+}
+/* Popup width is defined in JS using options */
+/* .pop_up .leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: black;
+  color: red;
+  border-radius: 5px;
+  padding-right: 0.6rem;
+} */

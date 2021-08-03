@@ -1,6 +1,7 @@
 "strict-mode";
 // Map
 coordinations = localStorage.getItem("coords").split(",");
+codesites = localStorage.getItem("codesites").split(",");
 const coords_arr = [];
 var map;
 initmap();
@@ -22,15 +23,50 @@ function localStorage_reader() {
 }
 //showing sites on map
 function Onmap_marker(coords) {
-  // format: [[52,53],[52,53]...]
+  var btsicon = L.icon({
+    iconUrl: "bts.png",
+    iconSize: [20, 28], // size of the icon
+    iconAnchor: [20, 28], // point of the icon which will correspond to marker's location
+    popupAnchor: [-9.5, -25], // point from which the popup should open relative to the iconAnchor
+  });
+
   for (let i = 0; i < coords.length; i++) {
     // L.marker(coords[i]).addTo(map).bindPopup("ES0015").openPopup();
-    L.marker(coords[i]).addTo(map);
+    L.marker(coords[i], { icon: btsicon })
+      .addTo(map)
+      .bindPopup(
+        L.popup({
+          maxWidth: 250,
+          minWidth: 30,
+          closeButton: false,
+          autoClose: false,
+          closeOnClick: false,
+          className: "pop_up",
+        })
+      )
+      .setPopupContent(`${codesites[i]}`)
+      .openPopup();
+    var circle = L.circle([32.675, 51.65322], {
+      color: "green",
+      fillColor: "#2553",
+      fillOpacity: 0.5,
+      radius: 20,
+    }).addTo(map);
   }
-  var circle = L.circle([32.675, 51.65322], {
-    color: "green",
-    fillColor: "#2553",
-    fillOpacity: 0.5,
-    radius: 20,
-  }).addTo(map);
 }
+
+// L.marker(workout.coords)
+// .addTo(this.#map)
+// .bindPopup(
+//   L.popup({
+//     maxWidth: 250,
+//     minWidth: 100,
+//     autoClose: false,
+//     closeOnClick: false,
+//     className: `${workout.type}-popup`,
+//   })
+// )
+// .setPopupContent(
+//   `${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'} ${workout.description}`
+// )
+// .openPopup();

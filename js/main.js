@@ -252,9 +252,10 @@ document.getElementById("copybutton").addEventListener("click", function () {
 document.getElementById("showonmap").addEventListener("click", function () {
   DatabaseMaker();
   localStorage.clear();
+  window.localStorage.removeItem("coords");
   localStorage.setItem("coords", selected_site_coords);
+  localStorage.setItem("codesites", ES_site);
   window.open("Map.html", "_blank");
-  console.log(selected_site_coords);
 });
 // const hadis = fetch("https://api.keybit.ir/hadis/");
 // console.log(hadis);

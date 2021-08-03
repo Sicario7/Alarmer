@@ -253,8 +253,9 @@ document.getElementById("showonmap").addEventListener("click", function () {
   DatabaseMaker();
   localStorage.clear();
   window.localStorage.removeItem("coords");
-  localStorage.setItem("coords", selected_site_coords);
+  // setTimeout(() => {}, 3000);
   localStorage.setItem("codesites", ES_site);
+  localStorage.setItem("coords", selected_site_coords);
   window.open("Map.html", "_blank");
 });
 // const hadis = fetch("https://api.keybit.ir/hadis/");

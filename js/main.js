@@ -1,7 +1,7 @@
 "strict-mode";
 const names = [],
-  codes = [];
-let selected_site_name = [];
+  codesDB = [];
+let selected_site_names = [];
 let selected_site_coords = [];
 let ES_site = [];
 let alarm_text;
@@ -12,7 +12,7 @@ var inf_state = "شرح";
 $.getJSON("data.json", function (json) {
   for (let i = 0; i < Object.keys(json).length; i++) {
     names[i] = json[i].name;
-    codes[i] = json[i].code;
+    codesDB[i] = json[i].code;
     coords.push([json[i].lat, json[i].long]);
   }
 });
@@ -92,7 +92,7 @@ const copyToClipboard = (str) => {
 };
 ////////////////////////////////////////////////////////////////
 function preview_Maker() {
-  codesite = document.getElementById("site_code").value;
+  // codesite = document.getElementById("site_code").value;
   reportedto = document.getElementById("rep_to").value;
   monitoring = document.getElementById("monitoring").value;
   more_inf = document.getElementById("more").value;
@@ -107,15 +107,19 @@ function DatabaseMaker() {
   codesite = document.getElementById("site_code").value;
   codeNOES = codesite.trim().split(/\s+/);
   ES_site = codeNOES.map((site) => `ES${site}`);
-  //Checks site codes and returns corresponding names
-  for (let a = 0; a < ES_site.length; a++) {
-    for (let b = 0; b < codes.length; b++) {
-      if (ES_site[a] == codes[b]) {
-        selected_site_name[a] = names[b];
-        selected_site_coords[a] = coords[b];
-      } else {
-        if (!selected_site_name[a]) {
-          selected_site_name[a] = "کد سایت اشتباه/ناموجود⭐";
+  //Checks site codesDB and returns corresponding names and coords
+  if (ES_site != "ES") {
+    for (let a = 0; a < ES_site.length; a++) {
+      for (let b = 0; b < codesDB.length; b++) {
+        if (ES_site[a] == codesDB[b]) {
+          // selected_site_codes[a] = ES_site[b];
+          selected_site_names[a] = names[b];
+          selected_site_coords[a] = coords[b];
+        } else {
+          if (!selected_site_names[a]) {
+            selected_site_names[a] = "کد سایت اشتباه/ناموجود⭐";
+            // selected_site_coords[a] = "";
+          }
         }
       }
     }
@@ -170,8 +174,8 @@ function text_maker() {
   ///////////////////////////////////////////////
   let str = "";
   site_list = `${(function nametocode_appender() {
-    for (let i = 0; i < selected_site_name.length; i++) {
-      str += `${selected_site_name[i]} - ${codeNOES[i]}\n`;
+    for (let i = 0; i < selected_site_names.length; i++) {
+      str += `${selected_site_names[i]} - ${codeNOES[i]}\n`;
     }
     return str;
   })()}`;
@@ -208,14 +212,6 @@ function text_maker() {
   time_stamp = `${(function time_stamper() {
     return `${time}`;
   })()}`;
-
-  // time_stamp = `${(function time_stamper() {
-  //   if (!time2.trim()) {
-  //     return time1;
-  //   } else {
-  //     return `${time1.trim()} الی ${time2.trim()}`;
-  //   }
-  // })()}`;
   ////////////////////////////////////////////////
   IsMonitorong = `${(function IsMonitorong() {
     if (document.getElementById("fixed_monitoring").checked === false) {
@@ -238,26 +234,33 @@ ${info_list}${reportedto}${IsMonitorong}${monitoring}`;
   document.getElementById("pre_modal").textContent = alarm_text;
   document.getElementById("copybutton").textContent = "کپی!";
   $("#myModal").modal();
-  clear_cache();
-  function clear_cache() {
-    selected_site_name.length = 0;
-    ES_site.length = 0;
-  }
+  clearCache();
+}
+function clearLocalStorage() {
+  window.localStorage.clear();
+  window.localStorage.removeItem("codesites");
+  window.localStorage.removeItem("coords");
+}
+function writeLocalStorage() {
+  clearLocalStorage();
+  localStorage.setItem("codesites", ES_site);
+  localStorage.setItem("coords", selected_site_coords);
+}
+function clearCache() {
+  selected_site_names.length = 0;
+  selected_site_coords.length = 0;
+  ES_site.length = 0;
 }
 document.getElementById("copybutton").addEventListener("click", function () {
-  // copyToClipboard(alarm_text);
   document.getElementById("copybutton").textContent = "کپی شد!";
 });
 // Map
 document.getElementById("showonmap").addEventListener("click", function () {
   DatabaseMaker();
-  localStorage.clear();
-  window.localStorage.removeItem("coords");
-  // setTimeout(() => {}, 3000);
-  localStorage.setItem("codesites", ES_site);
-  localStorage.setItem("coords", selected_site_coords);
-  window.open("Map.html", "_blank");
+  clearLocalStorage();
+  writeLocalStorage();
+  clearCache();
+  window.open("Map.html");
 });
 // const hadis = fetch("https://api.keybit.ir/hadis/");
-// console.log(hadis);
 // document.getElementById("hadith").textContent = hadis;

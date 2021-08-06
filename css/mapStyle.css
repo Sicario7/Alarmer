@@ -24,6 +24,7 @@ body {
 }
 
 .leaflet-popup-tip-container {
+  /* I have to test this! */
 }
 /* Popup width is defined in JS using options */
 /* .pop_up .leaflet-popup .leaflet-popup-content-wrapper {

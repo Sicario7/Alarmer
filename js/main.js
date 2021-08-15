@@ -262,5 +262,11 @@ document.getElementById("showonmap").addEventListener("click", function () {
   clearCache();
   window.open("Map.html");
 });
-// const hadis = fetch("https://api.keybit.ir/hadis/");
-// document.getElementById("hadith").textContent = hadis;
+
+fetch("https://api.country.is")
+  .then(function (responce) {
+    return responce.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  });

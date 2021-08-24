@@ -50,7 +50,8 @@ $(function () {
     "آقای یزدانپرست",
     "آقای زیباکلام",
     "آقای مصری پور",
-    "آقای سرائیان",
+    "آقای یزدانی بخش",
+    "آقای شیرانی",
     "آقای عرب",
     "آقای قربانی",
     "آقای نصیری",
@@ -263,7 +264,7 @@ document.getElementById("showonmap").addEventListener("click", function () {
   window.open("Map.html");
 });
 
-fetch("https://api.country.is")
+fetch("https://inspiration.goprogram.ai")
   .then(function (responce) {
     return responce.json();
   })

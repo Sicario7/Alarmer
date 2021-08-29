@@ -193,9 +193,9 @@ input:checked + .slider:before {
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
-  /* font-family: monospace; */
   font-size: 2em;
   border-right: none;
+  /* animation-delay: 1s; */
 }
 
 @keyframes typing {
@@ -211,4 +211,14 @@ input:checked + .slider:before {
   50% {
     border-color: transparent;
   }
+}
+
+@media (max-width: 468px) {
+  #showonmap {
+    margin-top: 7px;
+  }
+}
+
+#showonmap:hover {
+  background-color: blanchedalmond !important;
 }

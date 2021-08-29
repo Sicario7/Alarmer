@@ -264,10 +264,10 @@ document.getElementById("showonmap").addEventListener("click", function () {
   window.open("Map.html");
 });
 
-fetch("https://inspiration.goprogram.ai")
-  .then(function (responce) {
-    return responce.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  });
+// fetch("https://inspiration.goprogram.ai")
+//   .then(function (responce) {
+//     return responce.json();
+//   })
+//   .then(function (data) {
+//     console.log(data);
+//   });

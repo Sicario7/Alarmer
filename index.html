@@ -71,6 +71,8 @@
       })();
     </script>
     <!--END RAYCHAT CODE-->
+<!-- //////////////////////////////////////////////////////////////////////// -->
+
   </head>
   <body>
     <div class="container">
@@ -88,7 +90,7 @@
           type="search"
           class="form-control"
           id="site_code"
-          placeholder="کدسایت ها با فاصله مثل 0011 0123 1428"
+          placeholder="کدسایت ها با فاصله"
         />
 
         <label class="labels">آلارم</label>
@@ -131,25 +133,27 @@
         />
         <br />
         <button
+        type="button"
+        class="btn btn-primary"
+        id="preview"
+        data-toggle="modal"
+        data-target="#exampleModalLong"
+      >
+        مشاهده پیش نمایش 📋
+      </button>
+      <button type="button" class="btn btn-warning" id="clear">
+        پاک کردن ❌
+      </button>
+      <button
           type="button"
-          class="btn btn-light"
+          class="btn btn-light bg-transparent"
           id="showonmap"
           class="btn btn-info"
         >
           نمایش روی نقشه 📌
-        </button>
-        <button type="button" class="btn btn-warning" id="clear">
-          پاک کردن ❌
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          id="preview"
-          data-toggle="modal"
-          data-target="#exampleModalLong"
-        >
-          مشاهده پیش نمایش 📋
-        </button>
+      </button>
+
+
       </form>
       <!-- Modal -->
       <div

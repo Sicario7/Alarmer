@@ -3,8 +3,12 @@
 var coordinations = (codesites = "");
 
 if (localStorage.length) {
-  coordinations = localStorage.getItem("coords").split(",");
+  coordinations = localStorage.getItem("coords").split(",").filter(CheckValidSite);
   codesites = localStorage.getItem("codesites").split(",");
+  
+}
+function CheckValidSite(site) {
+  return site.includes()
 }
 const coords_arr = [];
 var map;
@@ -49,11 +53,11 @@ function Onmap_marker(coords) {
       )
       .setPopupContent(`${codesites[i]}`)
       .openPopup();
-    var circle = L.circle([32.675, 51.65322], {
-      color: "green",
-      fillColor: "#2553",
-      fillOpacity: 0.5,
-      radius: 20,
-    }).addTo(map);
+    // var circle = L.circle([C1,C2], {
+    //   color: "green",
+    //   fillColor: "#2553",
+    //   fillOpacity: 0.5,
+    //   radius: 20,
+    // }).addTo(map);
   }
 }

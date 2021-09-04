@@ -108,6 +108,7 @@ function DatabaseMaker() {
   codesite = document.getElementById("site_code").value;
   codeNOES = codesite.trim().split(/\s+/);
   ES_site = codeNOES.map((site) => `ES${site}`);
+
   //Checks site codesDB and returns corresponding names and coords
   if (ES_site != "ES") {
     for (let a = 0; a < ES_site.length; a++) {
@@ -119,12 +120,13 @@ function DatabaseMaker() {
         } else {
           if (!selected_site_names[a]) {
             selected_site_names[a] = "کد سایت اشتباه/ناموجود⭐";
-            // selected_site_coords[a] = "";
+            selected_site_coords[a] = [null,null];
           }
         }
       }
     }
   }
+  console.log(...selected_site_coords);
 }
 document.getElementById("clear").addEventListener("click", function () {
   document.getElementById("site_code").value = "";

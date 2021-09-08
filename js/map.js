@@ -3,12 +3,9 @@
 var coordinations = (codesites = "");
 
 if (localStorage.length) {
-  coordinations = localStorage.getItem("coords").split(",").filter(CheckValidSite);
+  coordinations = localStorage.getItem("coords").split(",");
   codesites = localStorage.getItem("codesites").split(",");
   
-}
-function CheckValidSite(site) {
-  return site.includes()
 }
 const coords_arr = [];
 var map;
@@ -37,9 +34,12 @@ function Onmap_marker(coords) {
     iconAnchor: [20, 28], // point of the icon which will correspond to marker's location
     popupAnchor: [-9.5, -25], // point from which the popup should open relative to the iconAnchor
   });
-
+console.log(coords);
   for (let i = 0; i < coords.length; i++) {
-    L.marker(coords[i], { icon: btsicon })
+    // console.log(typeof coords[i][0],typeof coords[i][1]);
+    // console.log(coords[i] !== ["",""]);
+    if (coords[i] != ["", ""]) {
+      L.marker(coords[i], { icon: btsicon })
       .addTo(map)
       .bindPopup(
         L.popup({
@@ -53,6 +53,8 @@ function Onmap_marker(coords) {
       )
       .setPopupContent(`${codesites[i]}`)
       .openPopup();
+    }
+
     // var circle = L.circle([C1,C2], {
     //   color: "green",
     //   fillColor: "#2553",

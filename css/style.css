@@ -195,6 +195,18 @@ input:checked + .slider:before {
   border-right: 3px solid;
   font-size: 2em;
   border-right: none;
+  background: linear-gradient(
+    to right,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 10s ease infinite;
+  text-shadow: 2px 2px;
   /* animation-delay: 1s; */
 }
 

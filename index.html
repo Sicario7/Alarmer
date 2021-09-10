@@ -77,14 +77,13 @@
   <body>
     <div class="container">
       <br />
-      <!-- <h2>گزارشگر آلارم</h2> -->
-      <div class="wrapper">
+      <div class="wrapper unselectable">
         <div class="typing-demo" style="font-family: Yekanfont">
           گزارشگر آلارم
         </div>
       </div>
       <form class="Main_form">
-        <label class="labels">کدسایت</label>
+        <label class="labels unselectable">کدسایت</label>
 
         <input
           type="search"
@@ -93,7 +92,7 @@
           placeholder="کدسایت ها با فاصله"
         />
 
-        <label class="labels">آلارم</label>
+        <label class="labels unselectable">آلارم</label>
         <input
           type="text"
           class="form-control"
@@ -101,22 +100,22 @@
           placeholder=""
         />
 
-        <label class="labels"> زمان آلارم</label>
-        <input type="text" class="form-control time" id="time" />
+        <label class="labels unselectable"> زمان آلارم</label>
+        <input type="text" class="form-control time unselectable" id="time" />
 
-        <label class="labels">شرح</label>
+        <label class="labels unselectable">شرح</label>
         <!--  -->
-        <label class="switch">
+        <label class="switch unselectable">
           <input id="sharh" type="checkbox" checked />
           <span class="slider round"></span>
         </label>
         <!--  -->
-        <label class="labels">علت</label>
+        <label class="labels unselectable">علت</label>
 
-        <input type="text" class="form-control" id="more" placeholder="" />
-        <label class="labels">گزارش به</label>
+        <input type="text" class="form-control " id="more" placeholder="" />
+        <label class="labels unselectable">گزارش به</label>
         <input type="text" class="form-control" id="rep_to" placeholder="" />
-        <label class="labels">مانیتورینگ</label>
+        <label class="labels unselectable">مانیتورینگ</label>
         <input
           type="checkbox"
           id="fixed_monitoring"

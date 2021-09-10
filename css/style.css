@@ -210,7 +210,7 @@ input:checked + .slider:before {
   text-shadow: 2px 2px;
   /* animation-delay: 1s; */
 }
-
+/* 
 @keyframes typing {
   from {
     width: 0;
@@ -218,9 +218,9 @@ input:checked + .slider:before {
   to {
     border-right: none;
   }
-}
+} */
 
-@keyframes clearFadeout {
+/* @keyframes clearFadeout {
   from {
     background-color: white;
   }
@@ -235,7 +235,7 @@ input:checked + .slider:before {
   50% {
     border-color: transparent;
   }
-}
+} */
 
 @media (max-width: 468px) {
   #showonmap {
@@ -245,4 +245,12 @@ input:checked + .slider:before {
 
 #showonmap:hover {
   background-color: blanchedalmond !important;
+}
+
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

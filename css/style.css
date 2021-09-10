@@ -203,6 +203,7 @@ input:checked + .slider:before {
     #fbf5b7,
     #aa771c
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient 10s ease infinite;
@@ -219,6 +220,17 @@ input:checked + .slider:before {
   }
 }
 
+@keyframes clearFadeout {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: crimson;
+  }
+}
+.clearAnimation {
+  animation: clearFadeout 2s;
+}
 @keyframes blink {
   50% {
     border-color: transparent;

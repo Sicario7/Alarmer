@@ -34,11 +34,11 @@ function Onmap_marker(coords) {
     iconAnchor: [20, 28], // point of the icon which will correspond to marker's location
     popupAnchor: [-9.5, -25], // point from which the popup should open relative to the iconAnchor
   });
-console.log(coords);
   for (let i = 0; i < coords.length; i++) {
     // console.log(typeof coords[i][0],typeof coords[i][1]);
     // console.log(coords[i] !== ["",""]);
-    if (coords[i] != ["", ""]) {
+    console.log(typeof coords[i] , typeof ["", ""]);
+    if (coords[i] !== ["", ""]) {
       L.marker(coords[i], { icon: btsicon })
       .addTo(map)
       .bindPopup(

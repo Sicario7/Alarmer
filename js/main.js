@@ -18,7 +18,7 @@ $.getJSON("data.json", function (json) {
 });
 $('[data-toggle="tooltip"]').tooltip();
 
-///////////////////////////////
+////////////////////////////////////////////////////////////
 //auto-complete of alarms field
 $(function () {
   var alarmtags = [
@@ -126,23 +126,17 @@ function DatabaseMaker() {
       }
     }
   }
-  console.log(...selected_site_coords);
 }
 document.getElementById("clear").addEventListener("click", function () {
   // document.getElementById("site_code").value = "";
-  testfield_ClearEffect("site_code") ;
-  testfield_ClearEffect("alarminput") ;
-  testfield_ClearEffect("more") ;
-  testfield_ClearEffect("rep_to") ;
-  testfield_ClearEffect("time") ;
-  // document.getElementById("alarminput").value = "";
-  // document.getElementById("more").value = "";
-  // document.getElementById("rep_to").value = "";
-  // document.getElementById("time").value = "";
+  textfield_ClearEffect("site_code") ;
+  textfield_ClearEffect("alarminput") ;
+  textfield_ClearEffect("more") ;
+  textfield_ClearEffect("rep_to") ;
+  textfield_ClearEffect("time") ;
 });
 
-function testfield_ClearEffect(str) {
-  // document.getElementById(`${str}`).classList.add("clearAnimation");  
+function textfield_ClearEffect(str) {
   document.getElementById(`${str}`).style.backgroundColor = "#e6babd"; 
 
   setTimeout(() => {
@@ -150,7 +144,6 @@ function testfield_ClearEffect(str) {
     document.getElementById(`${str}`).style.backgroundColor = "white"; 
   }, 500);
   document.getElementById(`${str}`).value = "";
-  // console.log( document.getElementById(`${str}`).classList);
   document.getElementById(`${str}`).classList.remove("clearAnimation");  
 
 }

@@ -58,11 +58,12 @@ $(function () {
     "آقای جنگروی",
     "آقای هدایتی",
     "آقای فریدونی",
-    "آقای خوانساری",
+    "آقای حسینی",
     "آقای علیزاده",
     "آقای ایزدی",
     "آقای مرادی",
     "آقای جودکی",
+    "آقای اعرابی",
   ];
   var moretags = [
     "قطعی برق منطقه",
@@ -107,6 +108,7 @@ function preview_Maker() {
 function DatabaseMaker() {
   codesite = document.getElementById("site_code").value;
   codeNOES = codesite.trim().split(/\s+/);
+  codeNOES = [...new Set(codeNOES)];
   ES_site = codeNOES.map((site) => `ES${site}`);
 
   //Checks site codesDB and returns corresponding names and coords
@@ -153,12 +155,12 @@ document.getElementById("preview").addEventListener("click", function () {
   preview_Maker();
 });
 
-document.getElementById("rep_to").addEventListener("keyup", function (e) {
-  if (e.keyCode === 13) {
-    e.preventDefault();
-    document.getElementById("preview").click();
-  }
-});
+// document.getElementById("rep_to").addEventListener("keyup", function (e) {
+//   if (e.keyCode === 13) {
+//     e.preventDefault();
+//     document.getElementById("preview").click();
+//   }
+// });
 var input = document.getElementById("sharh");
 input.addEventListener("change", function () {
   if (this.checked) {
@@ -254,13 +256,14 @@ ${info_list}${reportedto}${IsMonitorong}${monitoring}`;
 }
 function clearLocalStorage() {
   window.localStorage.clear();
-  window.localStorage.removeItem("codesites");
-  window.localStorage.removeItem("coords");
+  // window.localStorage.removeItem("codesites");
+  // window.localStorage.removeItem("coords");
 }
 function writeLocalStorage() {
-  clearLocalStorage();
+  // clearLocalStorage();
   localStorage.setItem("codesites", ES_site);
   localStorage.setItem("coords", selected_site_coords);
+  localStorage.setItem("names", selected_site_names);
 }
 function clearCache() {
   selected_site_names.length = 0;

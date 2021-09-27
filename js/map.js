@@ -5,7 +5,7 @@ var coordinations = (codesites = "");
 if (localStorage.length) {
   coordinations = localStorage.getItem("coords").split(",");
   codesites = localStorage.getItem("codesites").split(",");
-  
+  namesites = localStorage.getItem("names").split(",");
 }
 const coords_arr = [];
 var map;
@@ -51,7 +51,7 @@ function Onmap_marker(coords) {
           className: "pop_up",
         })
       )
-      .setPopupContent(`${codesites[i]}`)
+      .setPopupContent(`${codesites[i]} <br> ${namesites[i]}`)
       .openPopup();
     }
 

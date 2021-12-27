@@ -1,9 +1,10 @@
 @font-face {
   font-family: Yekanfont;
-  src: url("../BYekan.ttf");
+  src: url("../Vazir-Medium-FD.ttf");
 }
 @font-face {
   font-family: times;
+  font-size: small;
   src: url("../timesnewroman.ttf");
 }
 body {
@@ -60,7 +61,7 @@ pre {
   margin-bottom: -1px;
 }
 body {
-  background: linear-gradient(-45deg, #11998e, #38ef7d, #23a6d5, #23d5ab);
+  background: linear-gradient(+90deg, #11998e, #30c587, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }

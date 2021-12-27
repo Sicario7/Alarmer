@@ -23,7 +23,9 @@ $('[data-toggle="tooltip"]').tooltip();
 $(function () {
   var alarmtags = [
     "AC Fail",
+    "AC Phase Loss",
     "قطعی سایت",
+    "قطعی Uplink",
     "ریست سایت",
     "AC Fail - Module Fail",
     "Module Fail",
@@ -67,6 +69,7 @@ $(function () {
   ];
   var moretags = [
     "قطعی برق منطقه",
+    "عدم امکان تردد در شیفت شب",
     "PM-SITE",
     "در حال پیگیری",
     "ناپایداری لینک انتقال",

@@ -49,10 +49,10 @@ $(function () {
     "آقای شاهمرادی",
     "خانم خدابخشیان",
     "آقای نیری",
+    "آقای یزدانی بخش",
     "آقای یزدانپرست",
     "آقای زیباکلام",
     "آقای مصری پور",
-    "آقای یزدانی بخش",
     "آقای شیرانی",
     "آقای عرب",
     "آقای قربانی",
@@ -69,11 +69,11 @@ $(function () {
   ];
   var moretags = [
     "قطعی برق منطقه",
-    "عدم امکان تردد در شیفت شب",
-    "PM-SITE",
     "در حال پیگیری",
+    "PM-SITE",
     "ناپایداری لینک انتقال",
     "اعزام کارشناس",
+    "عدم امکان تردد در شیفت شب",
     "CR#Number - موضوع - از ساعت XX الی YY - انجام دهنده: XXXX",
   ];
   $("#alarminput").autocomplete({
@@ -252,7 +252,8 @@ ${info_list}${reportedto}${IsMonitorong}${monitoring}`;
 
   copyToClipboard(alarm_text);
 
-  document.getElementById("pre_modal").textContent = alarm_text;
+  // document.getElementById("pre_modal").textContent = alarm_text;
+  document.getElementById("pre_modal").value = alarm_text;
   document.getElementById("copybutton").textContent = "کپی!";
   $("#myModal").modal();
   clearCache();

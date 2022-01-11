@@ -23,7 +23,6 @@ $('[data-toggle="tooltip"]').tooltip();
 $(function () {
   var alarmtags = [
     "AC Fail",
-    "AC Phase Loss",
     "قطعی سایت",
     "قطعی Uplink",
     "ریست سایت",
@@ -31,6 +30,8 @@ $(function () {
     "Module Fail",
     "Module Fail>2",
     "AC Fail - Module Fail - Module Fail>2",
+    "AC Phase Loss",
+    "AC Undervoltage",
     "RF Unit Maintenance Link Failure",
     "High Temperature",
     "NE Is Disconnected",
@@ -49,10 +50,10 @@ $(function () {
     "آقای شاهمرادی",
     "خانم خدابخشیان",
     "آقای نیری",
+    "آقای یزدانی بخش",
     "آقای یزدانپرست",
     "آقای زیباکلام",
     "آقای مصری پور",
-    "آقای یزدانی بخش",
     "آقای شیرانی",
     "آقای عرب",
     "آقای قربانی",
@@ -69,7 +70,7 @@ $(function () {
   ];
   var moretags = [
     "قطعی برق منطقه",
-    "عدم امکان تردد در شیفت شب",
+    "مشکل تردد",
     "PM-SITE",
     "در حال پیگیری",
     "ناپایداری لینک انتقال",

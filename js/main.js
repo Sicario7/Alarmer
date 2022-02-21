@@ -7,7 +7,7 @@ let ES_site = [];
 let alarm_text;
 let codeNOES = [];
 let coords = [];
-var inf_state = "شرح";
+var inf_state = "علت";
 
 $.getJSON("data.json", function (json) {
   for (let i = 0; i < Object.keys(json).length; i++) {
@@ -168,9 +168,9 @@ document.getElementById("preview").addEventListener("click", function () {
 var input = document.getElementById("sharh");
 input.addEventListener("change", function () {
   if (this.checked) {
-    inf_state = "شرح";
-  } else {
     inf_state = "علت";
+  } else {
+    inf_state = "شرح";
   }
 });
 

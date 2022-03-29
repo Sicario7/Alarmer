@@ -67,6 +67,7 @@ $(function () {
     "آقای مرادی",
     "آقای جودکی",
     "آقای اعرابی",
+    "آقای کیماسی",
   ];
   var moretags = [
     "قطعی برق منطقه",
@@ -126,7 +127,7 @@ function DatabaseMaker() {
         } else {
           if (!selected_site_names[a]) {
             selected_site_names[a] = "کد سایت اشتباه/ناموجود⭐";
-            selected_site_coords[a] = [null,null];
+            selected_site_coords[a] = [null, null];
           }
         }
       }
@@ -135,23 +136,22 @@ function DatabaseMaker() {
 }
 document.getElementById("clear").addEventListener("click", function () {
   // document.getElementById("site_code").value = "";
-  textfield_ClearEffect("site_code") ;
-  textfield_ClearEffect("alarminput") ;
-  textfield_ClearEffect("more") ;
-  textfield_ClearEffect("rep_to") ;
-  textfield_ClearEffect("time") ;
+  textfield_ClearEffect("site_code");
+  textfield_ClearEffect("alarminput");
+  textfield_ClearEffect("more");
+  textfield_ClearEffect("rep_to");
+  textfield_ClearEffect("time");
 });
 
 function textfield_ClearEffect(str) {
-  document.getElementById(`${str}`).style.backgroundColor = "#e6babd"; 
+  document.getElementById(`${str}`).style.backgroundColor = "#e6babd";
 
   setTimeout(() => {
     //Run after specified time has passed
-    document.getElementById(`${str}`).style.backgroundColor = "white"; 
+    document.getElementById(`${str}`).style.backgroundColor = "white";
   }, 500);
   document.getElementById(`${str}`).value = "";
-  document.getElementById(`${str}`).classList.remove("clearAnimation");  
-
+  document.getElementById(`${str}`).classList.remove("clearAnimation");
 }
 
 // when clicking preview button:

@@ -46,9 +46,8 @@ $(function () {
     "VSWR - BAND:BBBB - SECTOR:Y - MAIN/DIVER - Value: X.Y",
   ];
   var nametags = [
+    "آقای جودکی",
     "آقای کاوه",
-    "آقای شاهمرادی",
-    "خانم خدابخشیان",
     "آقای نیری",
     "آقای یزدانی بخش",
     "آقای یزدانپرست",
@@ -65,8 +64,9 @@ $(function () {
     "آقای علیزاده",
     "آقای ایزدی",
     "آقای مرادی",
-    "آقای جودکی",
     "آقای اعرابی",
+    "خانم خدابخشیان",
+    "آقای شاهمرادی",
     "آقای کیماسی",
   ];
   var moretags = [
@@ -89,14 +89,14 @@ $(function () {
   });
 });
 ///////////////////////////////
-const copyToClipboard = (str) => {
+function copyToClipboard(str) {
   const el = document.createElement("textarea");
   el.value = str;
   document.body.appendChild(el);
   el.select();
-  document.execCommand("copy");
+  navigator.clipboard.writeText(el.value);
   document.body.removeChild(el);
-};
+}
 ////////////////////////////////////////////////////////////////
 function preview_Maker() {
   // codesite = document.getElementById("site_code").value;
@@ -117,6 +117,7 @@ function DatabaseMaker() {
   ES_site = codeNOES.map((site) => `ES${site}`);
 
   //Checks site codesDB and returns corresponding names and coords
+  // TODO: Maybe implement with find or findIndex method
   if (ES_site != "ES") {
     for (let a = 0; a < ES_site.length; a++) {
       for (let b = 0; b < codesDB.length; b++) {
@@ -251,8 +252,6 @@ function text_maker() {
 زمان آلارم: ${time_stamp}
 ${info_list}${reportedto}${IsMonitorong}${monitoring}`;
 
-  copyToClipboard(alarm_text);
-
   document.getElementById("pre_modal").textContent = alarm_text;
   document.getElementById("copybutton").textContent = "کپی!";
   $("#myModal").modal();
@@ -275,6 +274,7 @@ function clearCache() {
   ES_site.length = 0;
 }
 document.getElementById("copybutton").addEventListener("click", function () {
+  copyToClipboard(alarm_text);
   document.getElementById("copybutton").textContent = "کپی شد!";
 });
 // Map

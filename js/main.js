@@ -1,4 +1,5 @@
 "strict-mode";
+
 const names = [],
   codesDB = [];
 let selected_site_names = [];
@@ -7,7 +8,7 @@ let ES_site = [];
 let alarm_text;
 let codeNOES = [];
 let coords = [];
-var inf_state = "علت";
+let inf_state = "علت";
 
 $.getJSON("data.json", function (json) {
   for (let i = 0; i < Object.keys(json).length; i++) {
@@ -21,7 +22,7 @@ $('[data-toggle="tooltip"]').tooltip();
 ////////////////////////////////////////////////////////////
 //auto-complete of alarms field
 $(function () {
-  var alarmtags = [
+  const alarmtags = [
     "AC Fail",
     "قطعی سایت",
     "قطعی Uplink",
@@ -44,8 +45,10 @@ $(function () {
     "Cell Logical Channel Failure",
     "Battery Disconnect",
     "VSWR - BAND:BBBB - SECTOR:Y - MAIN/DIVER - Value: X.Y",
+    "Battery Fan Failure",
   ];
-  var nametags = [
+
+  const nametags = [
     "آقای جودکی",
     "آقای کاوه",
     "آقای نیری",
@@ -69,7 +72,7 @@ $(function () {
     "آقای شاهمرادی",
     "آقای کیماسی",
   ];
-  var moretags = [
+  const moretags = [
     "قطعی برق منطقه",
     "مشکل تردد",
     "PM-SITE",
@@ -117,23 +120,32 @@ function DatabaseMaker() {
   ES_site = codeNOES.map((site) => `ES${site}`);
 
   //Checks site codesDB and returns corresponding names and coords
-  // TODO: Maybe implement with find or findIndex method
-  if (ES_site != "ES") {
-    for (let a = 0; a < ES_site.length; a++) {
-      for (let b = 0; b < codesDB.length; b++) {
-        if (ES_site[a] == codesDB[b]) {
-          // selected_site_codes[a] = ES_site[b];
-          selected_site_names[a] = names[b];
-          selected_site_coords[a] = coords[b];
-        } else {
-          if (!selected_site_names[a]) {
-            selected_site_names[a] = "کد سایت اشتباه/ناموجود⭐";
-            selected_site_coords[a] = [null, null];
-          }
-        }
-      }
+  let found;
+  ES_site.forEach(function (site) {
+    found = codesDB.findIndex((el) => el == site);
+    if (found != -1) {
+      selected_site_names.push(names[found]);
+      selected_site_coords.push(coords[found]);
+    } else {
+      selected_site_coords.push([null, null]);
+      selected_site_names.push("کد سایت اشتباه/ناموجود⭐");
     }
-  }
+  });
+
+  // for (let a = 0; a < ES_site.length; a++) {
+  //   for (let b = 0; b < codesDB.length; b++) {
+  //     if (ES_site[a] == codesDB[b]) {
+  //       // selected_site_codes[a] = ES_site[b];
+  //       selected_site_names[a] = names[b];
+  //       selected_site_coords[a] = coords[b];
+  //     } else {
+  //       if (!selected_site_names[a]) {
+  //         selected_site_names[a] = "کد سایت اشتباه/ناموجود⭐";
+  //         selected_site_coords[a] = [null, null];
+  //       }
+  //     }
+  //   }
+  // }
 }
 document.getElementById("clear").addEventListener("click", function () {
   // document.getElementById("site_code").value = "";
@@ -146,13 +158,11 @@ document.getElementById("clear").addEventListener("click", function () {
 
 function textfield_ClearEffect(str) {
   document.getElementById(`${str}`).style.backgroundColor = "#e6babd";
-
   setTimeout(() => {
     //Run after specified time has passed
     document.getElementById(`${str}`).style.backgroundColor = "white";
   }, 500);
   document.getElementById(`${str}`).value = "";
-  document.getElementById(`${str}`).classList.remove("clearAnimation");
 }
 
 // when clicking preview button:
@@ -166,7 +176,7 @@ document.getElementById("preview").addEventListener("click", function () {
 //     document.getElementById("preview").click();
 //   }
 // });
-var input = document.getElementById("sharh");
+let input = document.getElementById("sharh");
 input.addEventListener("change", function () {
   if (this.checked) {
     inf_state = "علت";
@@ -286,10 +296,17 @@ document.getElementById("showonmap").addEventListener("click", function () {
   window.open("Map.html");
 });
 
-// fetch("https://inspiration.goprogram.ai")
-//   .then(function (responce) {
-//     return responce.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//   });
+// async function QuoteFetch() {
+//   try {
+//     const fetchedData = await fetch(
+//       "https://inspiration.goprogram.ai"
+//       //,{mode: "no-cors", }
+//     );
+//     console.log(fetchedData);
+//     const quote = fetchedData.json();
+//     console.log(quote);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+// QuoteFetch();

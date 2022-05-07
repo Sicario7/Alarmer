@@ -1,7 +1,6 @@
-@font-face {
-  font-family: vazirfont;
-  src: url("../Vazir-Medium-FD.ttf");
-}
+/* @font-face {
+  font-family: 'Vazirmatn', sans-serif;
+} */
 /* @font-face {
   font-family: times;
   font-size: small;
@@ -13,29 +12,50 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
 * {
-  font-family: vazirfont;
-  align-content: center;
+  /* font-family: vazirfont; */
+  font-family: "Vazirmatn", sans-serif;
+  -ms-flex-line-pack: center;
+      align-content: center;
   text-align: center;
   direction: rtl;
 }
+
+.container {
+  max-width: 80vw;
+}
+
 label {
   direction: rtl;
   text-align: center;
-  align-items: right;
-  align-self: right;
+  -webkit-box-align: right;
+      -ms-flex-align: right;
+          align-items: right;
+  -ms-flex-item-align: right;
+      -ms-grid-row-align: right;
+      align-self: right;
 }
+
 #submitb {
   width: 20em;
 }
+
 .form-control {
   background-color: aliceblue;
+  -webkit-transition-property: background;
+  transition-property: background;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
 }
+
 pre {
-  font-family: vazirfont;
+  /* font-family: vazirfont; */
+  font-family: "Vazirmatn", sans-serif;
   font-size: 1em;
   font-weight: bold;
 }
+
 .copyb {
   padding: 15px 25px;
   font-size: 24px;
@@ -48,10 +68,12 @@ pre {
   border-radius: 15px;
   /* box-shadow: 0 9px #999; */
 }
+
 .button:active {
   background-color: #3e8e41;
   /* box-shadow: 0 5px #666; */
-  transform: translateY(4px);
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
 }
 
 .labels {
@@ -60,10 +82,25 @@ pre {
   margin-top: 10px;
   margin-bottom: -1px;
 }
+
 body {
-  background: linear-gradient(+90deg, #11998e, #30c587, #23a6d5, #23d5ab);
+  background: -webkit-gradient(linear, left top, right top, from(#11998e), color-stop(#30c587), color-stop(#23a6d5), to(#23d5ab));
+  background: linear-gradient(90deg, #11998e, #30c587, #23a6d5, #23d5ab);
   background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
+  -webkit-animation: gradient 10s ease infinite;
+          animation: gradient 10s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes gradient {
@@ -81,43 +118,59 @@ body {
 footer {
   bottom: 0;
   right: -20px;
-  align-items: center;
-  align-self: center;
-  align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   text-align: center;
   font-size: 0.6em;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-family: "Roboto", sans-serif;
 }
+
 footer p {
   border: none;
   padding: 0;
 }
+
 footer a {
   color: #ffffff;
   text-decoration: none;
 }
+
 footer a:hover {
   color: #7d7d7d;
 }
+
 #site_code {
   direction: ltr;
 }
+
 #clear:active {
   background-color: #c52e1a;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+  -webkit-box-shadow: 0 5px #666;
+          box-shadow: 0 5px #666;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
 }
+
 .ui-tooltip-content {
   font-size: 10pt;
 }
+
 .time {
   display: inline-block;
   vertical-align: top;
-  align-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   /* width: 20%; */
 }
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -141,7 +194,7 @@ footer a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(223, 65, 65);
+  background-color: #df4141;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -164,12 +217,12 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  -webkit-box-shadow: 0 0 1px #2196f3;
+          box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
@@ -181,13 +234,20 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
 /* ////////////////////////////////////////////////// */
 .wrapper {
   /* height: 100vh; */
   /*This part is important for centering*/
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .typing-demo {
@@ -198,18 +258,13 @@ input:checked + .slider:before {
   border-right: 3px solid;
   font-size: 2em;
   border-right: none;
-  background: linear-gradient(
-    to right,
-    #bf953f,
-    #fcf6ba,
-    #b38728,
-    #fbf5b7,
-    #aa771c
-  );
+  background: -webkit-gradient(linear, left top, right top, from(#bf953f), color-stop(#fcf6ba), color-stop(#b38728), color-stop(#fbf5b7), to(#aa771c));
+  background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient 10s ease infinite;
+  -webkit-animation: gradient 10s ease infinite;
+          animation: gradient 10s ease infinite;
   text-shadow: 2px 2px;
   /* animation-delay: 1s; */
 }
@@ -226,8 +281,12 @@ input:checked + .slider:before {
 
 .unselectable {
   -moz-user-select: -moz-none;
-  -khtml-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+
+#pre_modal {
+  overflow: hidden;
+}
+/*# sourceMappingURL=style.css.map */

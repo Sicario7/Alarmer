@@ -1,0 +1,328 @@
+$text-color: #555;
+
+* {
+  font-family: "Vazirmatn", sans-serif;
+  // align-content: center;
+  text-align: center;
+  // direction: rtl;
+  box-sizing: border-box;
+}
+
+body {
+  // height: 100vh;
+  background: #e4ebf5; //#bbb is also good
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  //maybe I have to return background things...
+  #main-grid {
+    display: grid;
+    grid-gap: 10px;
+    // grid-template-columns: 4fr 1fr;
+    grid-template-areas:
+      "main main main main main main header"
+      "main main main main main main menu"
+      "main main main main main main ."
+      "main main main main main main footer";
+
+    #title {
+      grid-area: header;
+    }
+    #main-form {
+      grid-area: main;
+    }
+    #side-menu {
+      grid-area: menu;
+    }
+    #footer {
+      grid-area: footer;
+    }
+  }
+}
+
+#header-title {
+  color: $text-color;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+  font-weight: 200;
+  padding: 1rem;
+  border-radius: 2rem;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5),
+    inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #ffffff;
+  background: linear-gradient(
+    318.32deg,
+    rgba(163, 177, 198, 0.1) 0%,
+    rgba(163, 177, 198, 0.1) 55%,
+    rgba(163, 177, 198, 0.25) 100%
+  );
+}
+
+#side-menu {
+  ul {
+    margin-top: 3rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  li {
+    color: #888;
+    list-style-type: none;
+    // padding: 0.4rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .active {
+    color: #333;
+    font-weight: bold;
+    border-right: 3px #666 solid;
+
+    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 2px rgba(255, 255, 255, 0.075),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  a {
+    width: 100%;
+    text-decoration: none;
+    // color: #333;
+    border-right: 3px transparent solid;
+    transition: all 0.2s;
+    display: block;
+    padding: 0.4rem 1.5rem;
+
+    &:hover {
+      border-right: 3px #666 solid;
+      cursor: pointer;
+      color: #222;
+      padding: 0.4rem 1.5rem;
+      // background-color: cadetblue;
+      box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+        inset 2px 2px 2px rgba(255, 255, 255, 0.075),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+    }
+  }
+}
+
+#submitb {
+  width: 20em;
+}
+#main-form {
+  align-items: center;
+  margin: 1rem 1rem;
+  padding: 1rem 1rem;
+  // padding-top: 0;
+  border-radius: 3rem;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+
+  // border-radius: 2rem;
+  // box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+  //   -9px -9px 16px rgba(255, 255, 255, 0.5),
+  //   inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #ffffff;
+  // background: linear-gradient(
+  //   318.32deg,
+  //   rgba(163, 177, 198, 0.1) 0%,
+  //   rgba(163, 177, 198, 0.1) 55%,
+  //   rgba(163, 177, 198, 0.25) 100%
+  // );
+  label {
+    // toggler depends on this :\
+    direction: rtl;
+  }
+  .labels {
+    font-size: 1.2rem;
+    // width: auto;
+    // margin-top: 10px;
+    margin-bottom: 0.2rem;
+    color: $text-color;
+  }
+  input,
+  textarea {
+    overflow: hidden;
+    border: none;
+    outline: none;
+    background: none;
+    color: #555;
+    padding: 20px 10px 20px 5px;
+    border-radius: 1rem;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+  }
+  .form-control {
+    background-color: aliceblue;
+    transition-property: background;
+    transition-duration: 1s;
+  }
+  .form-group:first-child {
+    margin-top: 0.7rem;
+  }
+  .button-group {
+    margin: 0;
+    #showonmap:hover {
+      background-color: blanchedalmond !important;
+    }
+    #clear:hover {
+      background-color: rgb(237, 220, 220) !important;
+    }
+    #preview:hover {
+      background-color: rgb(222, 222, 234) !important;
+    }
+  }
+}
+//////////// Modal Stylng ////////////////
+pre {
+  font-size: 1em;
+  font-weight: bold;
+}
+.copyb {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 15px;
+  /* box-shadow: 0 9px #999; */
+}
+.button:active {
+  background-color: #3e8e41;
+  /* box-shadow: 0 5px #666; */
+  transform: translateY(4px);
+}
+///////////End of Modal Stylng ///////////
+footer {
+  #developer {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+  }
+  #update-time {
+    font-size: 0.8rem;
+    color: #777;
+  }
+}
+#site_code {
+  direction: ltr;
+}
+/* The switch - the box around the slider */
+// .switch {
+//   position: relative;
+//   display: inline-block;
+//   width: 60px;
+//   height: 20px;
+//   /* Hide default HTML checkbox */
+//   input {
+//     opacity: 0;
+//     width: 0;
+//     height: 0;
+//   }
+// }
+
+// /* The slider */
+// .slider {
+//   position: absolute;
+//   cursor: pointer;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: rgb(223, 65, 65);
+//   -webkit-transition: 0.4s;
+//   transition: 0.4s;
+// }
+
+// .slider:before {
+//   position: absolute;
+//   content: "";
+//   height: 17px;
+//   width: 26px;
+//   /* left: 3px; */
+//   bottom: 4px;
+//   top: 1.7px;
+//   background-color: white;
+//   -webkit-transition: 0.4s;
+//   transition: 0.4s;
+// }
+
+// input:checked + .slider {
+//   background-color: #2196f3;
+// }
+
+// input:focus + .slider {
+//   box-shadow: 0 0 1px #2196f3;
+// }
+
+// input:checked + .slider:before {
+//   -webkit-transform: translateX(26px);
+//   -ms-transform: translateX(26px);
+//   transform: translateX(26px);
+// }
+
+// /* Rounded sliders */
+// .slider.round {
+//   border-radius: 34px;
+// }
+
+// .slider.round:before {
+//   border-radius: 50%;
+// }
+/* ////////////////////////////////////////////////// */
+
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#pre_modal {
+  overflow: hidden;
+}
+
+textarea {
+  min-height: calc(1.5em + 0.75rem + 2px);
+}
+
+.neu-btn {
+  cursor: pointer;
+  padding: 1em 2rem;
+  margin: 0 0.7rem;
+  background: #efefef;
+  border: none;
+  border-radius: 0.5rem;
+  color: #444;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none !important;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7),
+    -6px -6px 10px rgba(255, 255, 255, 0.5),
+    6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
+  &:hover {
+    box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
+      -2px -2px 4px rgba(255, 255, 255, 0.4),
+      2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  &:active {
+    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 2px rgba(255, 255, 255, 0.075),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+    border: none !important;
+  }
+}

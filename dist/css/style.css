@@ -380,4 +380,89 @@ textarea {
   top: 0;
   left: 0;
 }
+
+@media (max-width: 768px) {
+  body #main-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas: "header" "menu" "main" "footer";
+  }
+  body #main-grid #title {
+    grid-area: header;
+  }
+  body #main-grid .main-form {
+    grid-area: main;
+  }
+  body #main-grid #side-menu {
+    grid-area: menu;
+  }
+  body #main-grid #footer {
+    grid-area: footer;
+  }
+  #side-menu {
+    border: none;
+  }
+  #side-menu ul {
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: row;
+  }
+  #side-menu li {
+    color: #888;
+    width: 100%;
+    font-size: 0.6rem;
+  }
+  #side-menu .active {
+    border-radius: 0.5rem;
+    border: none;
+  }
+  #side-menu a {
+    padding: 0.5rem;
+    border: none;
+  }
+  #side-menu a:hover {
+    border-radius: 0;
+    padding: 0.5rem;
+    border: none;
+  }
+  #side-menu a:active {
+    border-radius: 0.5rem;
+  }
+  #alarm-text {
+    border-radius: 2rem;
+  }
+  #alarm-text .form-group {
+    width: 100%;
+  }
+  #alarm-text .button-group {
+    display: flex;
+    flex-direction: column;
+  }
+  #alarm-text .button-group .main-btn {
+    margin: 0.7rem;
+    padding: 0.5rem;
+    width: 70%;
+  }
+  #alarm-text .form-control {
+    padding: 1rem;
+  }
+}
+
+.contact-form .container {
+  width: 80%;
+}
+
+footer #developer {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+footer #update-time {
+  font-size: 0.7rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
 /*# sourceMappingURL=style.css.map */

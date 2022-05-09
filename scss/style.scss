@@ -1,11 +1,19 @@
 $text-color: #555;
-
+$yellow-color: blanchedalmond;
+$red-color: rgb(240, 223, 223);
+$blue-color: rgb(231, 231, 240);
+// #TODO:
+$change-page-transition: all 1.5s;
 * {
   font-family: "Vazirmatn", sans-serif;
   // align-content: center;
   text-align: center;
   // direction: rtl;
   box-sizing: border-box;
+}
+
+.hide {
+  visibility: hidden;
 }
 
 body {
@@ -27,7 +35,7 @@ body {
     #title {
       grid-area: header;
     }
-    #main-form {
+    .main-form {
       grid-area: main;
     }
     #side-menu {
@@ -115,33 +123,27 @@ body {
 #submitb {
   width: 20em;
 }
-#main-form {
+
+#alarm-text {
   align-items: center;
   width: 95%;
-
-  margin: 1rem 1rem;
+  margin: 1rem 1rem 0 1rem;
   padding: 1rem 1rem;
-  // padding-top: 0;
+  padding-top: 0.5rem;
   border-radius: 3rem;
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
     -9px -9px 16px rgba(163, 177, 198, 0.6);
 
-  // border-radius: 2rem;
-  // box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-  //   -9px -9px 16px rgba(255, 255, 255, 0.5),
-  //   inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #ffffff;
-  // background: linear-gradient(
-  //   318.32deg,
-  //   rgba(163, 177, 198, 0.1) 0%,
-  //   rgba(163, 177, 198, 0.1) 55%,
-  //   rgba(163, 177, 198, 0.25) 100%
-  // );
   .form-group {
     width: 90%;
     margin: 1rem auto;
     align-items: center;
     align-self: center;
     align-content: center;
+    // Buttons Styling:
+    &:last-child {
+      margin: auto;
+    }
   }
   label {
     // toggler depends on this :\
@@ -159,6 +161,7 @@ body {
   }
   input,
   textarea {
+    direction: rtl;
     overflow: hidden;
     border: none;
     outline: none;
@@ -177,39 +180,17 @@ body {
   .button-group {
     // margin: 1rem;
     #showonmap:hover {
-      background-color: blanchedalmond !important;
+      background-color: $yellow-color !important;
     }
     #clear:hover {
-      background-color: rgb(240, 223, 223) !important;
+      background-color: $red-color !important;
     }
     #preview:hover {
-      background-color: rgb(231, 231, 240) !important;
+      background-color: $blue-color !important;
     }
   }
 }
-//////////// Modal Stylng ////////////////
-pre {
-  font-size: 1em;
-  font-weight: bold;
-}
-.copyb {
-  padding: 15px 25px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #4caf50;
-  border: none;
-  border-radius: 15px;
-  /* box-shadow: 0 9px #999; */
-}
-.button:active {
-  background-color: #3e8e41;
-  /* box-shadow: 0 5px #666; */
-  transform: translateY(4px);
-}
-///////////End of Modal Stylng ///////////
+
 footer {
   #developer {
     font-size: 0.6rem;
@@ -226,69 +207,6 @@ footer {
 #site_code {
   direction: ltr;
 }
-/* The switch - the box around the slider */
-// .switch {
-//   position: relative;
-//   display: inline-block;
-//   width: 60px;
-//   height: 20px;
-//   /* Hide default HTML checkbox */
-//   input {
-//     opacity: 0;
-//     width: 0;
-//     height: 0;
-//   }
-// }
-
-// /* The slider */
-// .slider {
-//   position: absolute;
-//   cursor: pointer;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background-color: rgb(223, 65, 65);
-//   -webkit-transition: 0.4s;
-//   transition: 0.4s;
-// }
-
-// .slider:before {
-//   position: absolute;
-//   content: "";
-//   height: 17px;
-//   width: 26px;
-//   /* left: 3px; */
-//   bottom: 4px;
-//   top: 1.7px;
-//   background-color: white;
-//   -webkit-transition: 0.4s;
-//   transition: 0.4s;
-// }
-
-// input:checked + .slider {
-//   background-color: #2196f3;
-// }
-
-// input:focus + .slider {
-//   box-shadow: 0 0 1px #2196f3;
-// }
-
-// input:checked + .slider:before {
-//   -webkit-transform: translateX(26px);
-//   -ms-transform: translateX(26px);
-//   transform: translateX(26px);
-// }
-
-// /* Rounded sliders */
-// .slider.round {
-//   border-radius: 34px;
-// }
-
-// .slider.round:before {
-//   border-radius: 50%;
-// }
-/* ////////////////////////////////////////////////// */
 
 .unselectable {
   -moz-user-select: -moz-none;
@@ -303,7 +221,7 @@ footer {
 }
 
 textarea {
-  min-height: calc(1.5em + 0.75rem + 2px);
+  min-height: 1rem;
 }
 
 .neu-btn {
@@ -334,5 +252,174 @@ textarea {
       inset 2px 2px 2px rgba(255, 255, 255, 0.075),
       inset 2px 2px 4px rgba(0, 0, 0, 0.15);
     border: none !important;
+  }
+}
+// Preview Modal
+.modal {
+  .modal-content {
+    border-radius: 1rem;
+    background-color: #e6e7ee;
+    color: #44476a;
+  }
+  .modal-header {
+    border-bottom: 0 none;
+    flex-direction: column;
+    .modal-title {
+      margin: auto;
+      align-content: center;
+      align-items: center;
+    }
+
+    .x-modal-close {
+      align-self: flex-end;
+      font-size: 2rem;
+      margin: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50%;
+      background-color: rgb(240, 221, 217);
+    }
+  }
+  .modal-body {
+    #pre_modal {
+      font-family: "Vazirmatn", sans-serif;
+      direction: rtl;
+      padding: 1rem;
+      border-radius: 1rem;
+
+      box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+        inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  }
+  .modal-footer {
+    border-top: 0 none;
+    direction: rtl;
+    margin: auto;
+    margin-bottom: 1rem;
+    position: relative;
+    text-align: center;
+    transition: all 0.1s ease-in-out;
+    .footer-button {
+      box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
+      color: $text-color;
+      padding: 1rem 4rem;
+      // flex-basis: auto;
+      &:hover {
+        opacity: 0.8;
+        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+          6px 6px 10px rgba(0, 0, 0, 0.2);
+      }
+      &:active {
+        opacity: 1;
+        box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+          inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+      }
+    }
+    //
+  }
+}
+/////////////////////////////////////
+.alarm-form {
+  position: relative;
+  transition: $change-page-transition;
+  opacity: 1;
+}
+/////////////////////////////////////
+.contact-form {
+  position: relative;
+  top: -1000px;
+  transition: $change-page-transition;
+  opacity: 0;
+  .container {
+    // position: relative;
+    width: 40rem;
+    height: auto;
+    border-radius: 1rem;
+    padding: 3rem;
+    margin: 4rem auto;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  }
+
+  .brand-logo {
+    height: 100px;
+    width: 100px;
+    background: url("https://img.icons8.com/color/100/000000/twitter--v2.png");
+    margin: auto;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  }
+
+  .brand-title {
+    margin-top: 10px;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #1da1f2;
+    letter-spacing: 1px;
+  }
+
+  .inputs {
+    text-align: left;
+    margin-top: 30px;
+  }
+
+  label,
+  input,
+  textarea,
+  button {
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  label {
+    margin-bottom: 4px;
+  }
+
+  label:nth-of-type(2) {
+    margin-top: 12px;
+  }
+  textarea::placeholder,
+  input::placeholder {
+    color: gray;
+  }
+
+  input,
+  textarea {
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    height: 50px;
+    font-size: 1rem;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+    direction: rtl;
+  }
+
+  button {
+    color: white;
+    margin-top: 20px;
+    background: #1da1f2;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+    transition: 0.5s;
+  }
+
+  button:hover {
+    box-shadow: none;
+  }
+
+  h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }

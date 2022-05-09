@@ -68,15 +68,15 @@
           <li class="nav-item" id="weather"><a>هواشناسی</a></li>
         </ul>
       </aside>
-      <form class="main-form contact-form" netlify>
+      <form class="main-form contact-form" name="contact" method="POST" netlify>
         <div class="container">
           <div class="brand-logo"></div>
           <div class="brand-title">پشتیبانی</div>
           <div class="inputs">
             <label>تلفن</label>
-            <input type="tel" placeholder="همراه یا ثابت" />
+            <input type="tel" placeholder="همراه یا ثابت" name="phone" />
             <label>متن پیام</label>
-            <textarea type="text" placeholder=""></textarea>
+            <textarea type="text" placeholder="" name="message-text"></textarea>
             <button type="submit">ارسال پیام</button>
           </div>
         </div>

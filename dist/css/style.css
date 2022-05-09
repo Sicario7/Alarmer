@@ -1,0 +1,383 @@
+* {
+  font-family: "Vazirmatn", sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+body {
+  background: #e4ebf5;
+}
+
+body #main-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: "main main main main main main header" "main main main main main main menu" "main main main main main main ." "main main main main main main footer";
+}
+
+body #main-grid #title {
+  grid-area: header;
+}
+
+body #main-grid .main-form {
+  grid-area: main;
+}
+
+body #main-grid #side-menu {
+  grid-area: menu;
+}
+
+body #main-grid #footer {
+  grid-area: footer;
+}
+
+#header-title {
+  color: #555;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+  font-weight: 200;
+  padding: 1rem;
+  border-radius: 2rem;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5), inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #ffffff;
+  background: linear-gradient(318.32deg, rgba(163, 177, 198, 0.1) 0%, rgba(163, 177, 198, 0.1) 55%, rgba(163, 177, 198, 0.25) 100%);
+}
+
+#side-menu ul {
+  margin-top: 3rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#side-menu li {
+  color: #888;
+  list-style-type: none;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+#side-menu .active {
+  color: #333;
+  font-weight: bold;
+  border-right: 3px #666 solid;
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7), inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 2px rgba(255, 255, 255, 0.075), inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+#side-menu a {
+  width: 100%;
+  text-decoration: none;
+  border-right: 3px transparent solid;
+  transition: all 0.2s;
+  display: block;
+  padding: 0.4rem 1.5rem;
+}
+
+#side-menu a:hover {
+  border-right: 3px #666 solid;
+  cursor: pointer;
+  color: #222;
+  padding: 0.4rem 1.5rem;
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7), inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 2px rgba(255, 255, 255, 0.075), inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+#submitb {
+  width: 20em;
+}
+
+#alarm-text {
+  align-items: center;
+  width: 95%;
+  margin: 1rem 1rem 0 1rem;
+  padding: 1rem 1rem;
+  padding-top: 0.5rem;
+  border-radius: 3rem;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(163, 177, 198, 0.6);
+}
+
+#alarm-text .form-group {
+  width: 90%;
+  margin: 1rem auto;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+
+#alarm-text .form-group:last-child {
+  margin: auto;
+}
+
+#alarm-text label {
+  direction: rtl;
+}
+
+#alarm-text ::placeholder {
+  color: #ccc;
+}
+
+#alarm-text .labels {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+  color: #555;
+}
+
+#alarm-text input,
+#alarm-text textarea {
+  direction: rtl;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  background: none;
+  color: #555;
+  padding: 20px 10px 20px 5px;
+  border-radius: 1rem;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+
+#alarm-text .form-control {
+  background-color: aliceblue;
+  transition-property: background;
+  transition-duration: 1s;
+}
+
+#alarm-text .button-group #showonmap:hover {
+  background-color: blanchedalmond !important;
+}
+
+#alarm-text .button-group #clear:hover {
+  background-color: #f0dfdf !important;
+}
+
+#alarm-text .button-group #preview:hover {
+  background-color: #e7e7f0 !important;
+}
+
+footer #developer {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+
+footer #update-time {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+#site_code {
+  direction: ltr;
+}
+
+.unselectable {
+  user-select: none;
+}
+
+#pre_modal {
+  overflow: hidden;
+}
+
+textarea {
+  min-height: 1rem;
+}
+
+.neu-btn {
+  cursor: pointer;
+  padding: 1em 2rem;
+  margin: 0 0.7rem;
+  background: #efefef;
+  border: none;
+  border-radius: 0.5rem;
+  color: #444;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none !important;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7), -6px -6px 10px rgba(255, 255, 255, 0.5), 6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.neu-btn:hover {
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6), -2px -2px 4px rgba(255, 255, 255, 0.4), 2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.neu-btn:active {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7), inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 2px rgba(255, 255, 255, 0.075), inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+  border: none !important;
+}
+
+.modal .modal-content {
+  border-radius: 1rem;
+  background-color: #e6e7ee;
+  color: #44476a;
+}
+
+.modal .modal-header {
+  border-bottom: 0 none;
+  flex-direction: column;
+}
+
+.modal .modal-header .modal-title {
+  margin: auto;
+  align-content: center;
+  align-items: center;
+}
+
+.modal .modal-header .x-modal-close {
+  align-self: flex-end;
+  font-size: 2rem;
+  margin: 1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50%;
+  background-color: #f0ddd9;
+}
+
+.modal .modal-body #pre_modal {
+  font-family: "Vazirmatn", sans-serif;
+  direction: rtl;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.modal .modal-footer {
+  border-top: 0 none;
+  direction: rtl;
+  margin: auto;
+  margin-bottom: 1rem;
+  position: relative;
+  text-align: center;
+  transition: all 0.1s ease-in-out;
+}
+
+.modal .modal-footer .footer-button {
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  color: #555;
+  padding: 1rem 4rem;
+}
+
+.modal .modal-footer .footer-button:hover {
+  opacity: 0.8;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal .modal-footer .footer-button:active {
+  opacity: 1;
+  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.alarm-form {
+  position: relative;
+  transition: all 1.5s;
+  opacity: 1;
+}
+
+.contact-form {
+  position: relative;
+  top: -1000px;
+  transition: all 1.5s;
+  opacity: 0;
+}
+
+.contact-form .container {
+  width: 40rem;
+  height: auto;
+  border-radius: 1rem;
+  padding: 3rem;
+  margin: 4rem auto;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+.contact-form .brand-logo {
+  height: 100px;
+  width: 100px;
+  background: url("https://img.icons8.com/color/100/000000/twitter--v2.png");
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+.contact-form .brand-title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #1da1f2;
+  letter-spacing: 1px;
+}
+
+.contact-form .inputs {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.contact-form label,
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.contact-form label {
+  margin-bottom: 4px;
+}
+
+.contact-form label:nth-of-type(2) {
+  margin-top: 12px;
+}
+
+.contact-form textarea::placeholder,
+.contact-form input::placeholder {
+  color: gray;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 1rem;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  direction: rtl;
+}
+
+.contact-form button {
+  color: white;
+  margin-top: 20px;
+  background: #1da1f2;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+}
+
+.contact-form button:hover {
+  box-shadow: none;
+}
+
+.contact-form h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/*# sourceMappingURL=style.css.map */

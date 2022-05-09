@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <title>Alarmer&trade;</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="shortcut icon" type="image/x-icon" href="Alarm.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- External libraries:
+    jquery.min.js
+    bootstrap.min.css
+    bootstrap.min.js
+    jquery-ui.min.css
+    jquery-ui.min.js
+    -->
+
+    <!-- for modal -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- for autocompletion -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+      integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+    <script type="text/javascript" src="data.json"></script>
+    <script defer src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+  </head>
+  <body>
+    <div id="main-grid">
+      <header id="title">
+        <nav id="main-nav">
+          <div id="header-title">دستیار آلارم</div>
+        </nav>
+      </header>
+      <aside id="side-menu">
+        <ul class="nav-list unselectable">
+          <li class="nav-item active main" id="main-page"><a>صفحه اصلی</a></li>
+          <li class="nav-item main" id="contact-us"><a>ارتباط با من</a></li>
+          <hr />
+          <li class="nav-item" id="open-map"><a>نقشه</a></li>
+          <li class="nav-item" id="weather"><a>هواشناسی</a></li>
+        </ul>
+      </aside>
+      <form class="main-form contact-form" netlify>
+        <div class="container">
+          <div class="brand-logo"></div>
+          <div class="brand-title">پشتیبانی</div>
+          <div class="inputs">
+            <label>تلفن</label>
+            <input type="tel" placeholder="همراه یا ثابت" />
+            <label>متن پیام</label>
+            <textarea type="text" placeholder=""></textarea>
+            <button type="submit">ارسال پیام</button>
+          </div>
+        </div>
+      </form>
+      <section class="main-form alarm-form">
+        <form id="alarm-text">
+          <div class="form-group">
+            <label class="labels unselectable">کدسایت</label>
+            <input
+              type="search"
+              class="form-control"
+              id="site_code"
+              placeholder="کدسایت ها با فاصله"
+            />
+          </div>
+          <div class="form-group">
+            <label class="labels unselectable">آلارم</label>
+            <input
+              type="text"
+              class="form-control"
+              id="alarminput"
+              placeholder=""
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="labels unselectable"> زمان آلارم</label>
+            <input
+              type="text"
+              class="form-control time unselectable"
+              id="time"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="labels unselectable">توضیحات</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="more"
+              oninput="auto_grow(this)"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="labels unselectable">گزارش به</label>
+            <input
+              type="text"
+              class="form-control"
+              id="rep_to"
+              placeholder=""
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="labels unselectable">مانیتورینگ</label>
+            <input
+              type="text"
+              class="form-control"
+              id="monitoring"
+              placeholder=""
+            />
+          </div>
+          <div class="form-group button-group">
+            <button type="button" class="neu-btn" id="clear">
+              پاک کردن ❌
+            </button>
+            <button
+              type="button"
+              clearfooter
+              class="neu-btn"
+              id="preview"
+              data-toggle="modal"
+              data-target="#exampleModalLong"
+            >
+              پیش نمایش 📋
+            </button>
+            <button
+              type="button"
+              class="neu-btn"
+              id="showonmap"
+              class="btn btn-info"
+            >
+              نمایش روی نقشه 📌
+            </button>
+          </div>
+        </form>
+      </section>
+      <!-- End of main-form -->
+
+      <footer id="footer">
+        <p id="developer">
+          made with <span style="color: red">❤</span> by
+          <a href=""> Y.Basiri </a>
+        </p>
+        <p id="update-time">آخرین بروزرسانی دیتابیس 20 اردیبهشت 1401</p>
+      </footer>
+    </div>
+    <!-- Modal -->
+
+    <section
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+      aria-labelledby="prev-modal"
+      id="prev-modal"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close neu-btn x-modal-close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" class="">×</span>
+            </button>
+            <h2 class="h6 modal-title mb-0" id=" modal-title-default">
+              پیش نمایش آلارم
+            </h2>
+          </div>
+          <div class="modal-body">
+            <pre id="pre_modal">
+              <!-- content will be injected by js -->
+            </pre>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="footer-button btncopyb neu-btn"
+              data-dismiss="modal"
+              id="closemodal"
+            >
+              بستن
+            </button>
+            <button
+              type="button"
+              id="copybutton"
+              class="js-textareacopybtn footer-button neu-btn copyb"
+            >
+              کپی!
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End of Modal Content -->
+  </body>
+</html>

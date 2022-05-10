@@ -14,7 +14,6 @@ body {
 
 body #main-grid {
   display: grid;
-  grid-gap: 10px;
   grid-template-areas: "main main main main main main header" "main main main main main main menu" "main main main main main main ." "main main main main main main footer";
 }
 
@@ -215,6 +214,10 @@ textarea {
   border: none !important;
 }
 
+.btn-pressed {
+  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
 .modal .modal-content {
   border-radius: 1rem;
   background-color: #e6e7ee;
@@ -243,6 +246,7 @@ textarea {
 
 .modal .modal-body #pre_modal {
   font-family: "Vazirmatn", sans-serif;
+  font-size: 1rem;
   direction: rtl;
   padding: 1rem;
   border-radius: 1rem;
@@ -252,40 +256,34 @@ textarea {
 .modal .modal-footer {
   border-top: 0 none;
   direction: rtl;
-  margin: auto;
   margin-bottom: 1rem;
   position: relative;
   text-align: center;
   transition: all 0.1s ease-in-out;
 }
 
-.modal .modal-footer .footer-button {
-  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
-  color: #555;
+.modal .modal-footer .modal-button {
+  margin: auto;
   padding: 1rem 4rem;
+  align-content: center;
+  color: #555;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-.modal .modal-footer .footer-button:hover {
+.modal .modal-footer .modal-button:hover {
   opacity: 0.8;
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
-}
-
-.modal .modal-footer .footer-button:active {
-  opacity: 1;
-  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .alarm-form {
   position: relative;
   transition: all 1.5s;
-  opacity: 1;
 }
 
 .contact-form {
   position: relative;
   top: -1000px;
   transition: all 1.5s;
-  opacity: 0;
 }
 
 .contact-form .container {
@@ -410,25 +408,27 @@ textarea {
   #side-menu li {
     color: #888;
     width: 100%;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
   #side-menu .active {
     border-radius: 0.5rem;
     border: none;
   }
   #side-menu a {
-    padding: 0.5rem;
+    padding: 0.3rem;
     border: none;
   }
   #side-menu a:hover {
     border-radius: 0;
-    padding: 0.5rem;
+    padding: 0.3rem;
     border: none;
   }
   #side-menu a:active {
     border-radius: 0.5rem;
   }
   #alarm-text {
+    width: 90%;
+    margin: auto;
     border-radius: 2rem;
   }
   #alarm-text .form-group {
@@ -446,23 +446,26 @@ textarea {
   #alarm-text .form-control {
     padding: 1rem;
   }
-}
-
-.contact-form .container {
-  width: 80%;
-}
-
-footer #developer {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-footer #update-time {
-  font-size: 0.7rem;
-  color: #777;
-  margin-bottom: 0.5rem;
+  footer #developer {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  footer #update-time {
+    font-size: 0.7rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+  }
+  .modal-footer .modal-button {
+    padding: 2rem;
+    align-content: center;
+    width: 70%;
+  }
+  .modal-footer .modal-button:hover {
+    opacity: 0.8;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  }
 }
 /*# sourceMappingURL=style.css.map */

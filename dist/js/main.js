@@ -18,31 +18,6 @@ $.getJSON("data.json", function (json) {
   }
 });
 ////////////////////////////////////////////////////////////
-// Do it with fadeTo: (Problem: opacity...)
-// $(".contact-form").fadeTo(0, 0);
-// $(".alarm-form").fadeTo(600, 1);
-
-// document.getElementById("main-page").addEventListener("click", function () {
-//   document.getElementById("main-page").classList.add("active");
-//   document.getElementById("contact-us").classList.remove("active");
-//   ///////////////////////////////////////////////////////////////////
-//   // document.getElementsByClassName("contact-form")[0].classList.add("hide");
-//   // document.getElementsByClassName("alarm-form")[0].classList.remove("hide");
-
-//   $(".contact-form").fadeTo(600, 0);
-//   $(".alarm-form").fadeTo(600, 1);
-// });
-
-// document.getElementById("contact-us").addEventListener("click", function () {
-//   document.getElementById("main-page").classList.remove("active");
-//   document.getElementById("contact-us").classList.add("active");
-//   ///////////////////////////////////////////////////////////////////
-//   // document.getElementsByClassName("alarm-form")[0].classList.add("hide");
-//   // document.getElementsByClassName("contact-form")[0].classList.remove("hide");
-//   $(".alarm-form").fadeTo(600, 0);
-//   $(".contact-form").fadeTo(600, 1);
-// });
-
 document.getElementById("main-page").addEventListener("click", function () {
   document.getElementById("main-page").classList.add("active");
   document.getElementById("contact-us").classList.remove("active");
@@ -281,6 +256,7 @@ ${info_list}${reportedto}${monitoring}`;
   $("#prev-modal").modal();
   clearCache();
 }
+
 function clearLocalStorage() {
   window.localStorage.clear();
   // window.localStorage.removeItem("codesites");
@@ -299,7 +275,12 @@ function clearCache() {
 }
 document.getElementById("copybutton").addEventListener("click", function () {
   copyToClipboard(alarm_text);
-  document.getElementById("copybutton").textContent = "کپی شد!";
+  document.getElementById("copybutton").textContent = "کپی شد";
+  document.getElementById("copybutton").style.color = "green";
+  document.getElementById("copybutton").classList.add("btn-pressed");
+});
+$("#prev-modal").on("hidden.bs.modal", function () {
+  document.getElementById("copybutton").classList.remove("btn-pressed");
 });
 // Map
 document.getElementById("showonmap").addEventListener("click", function () {

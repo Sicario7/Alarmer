@@ -18,14 +18,10 @@ $change-page-transition: all 1.5s;
 
 body {
   // height: 100vh;
-  background: #e4ebf5; //#bbb is also good
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  //maybe I have to return background things...
+  background: #e4ebf5;
   #main-grid {
     display: grid;
-    grid-gap: 10px;
-    // grid-template-columns: 4fr 1fr;
+    // grid-gap: 10px;
     grid-template-areas:
       "main main main main main main header"
       "main main main main main main menu"
@@ -254,6 +250,12 @@ textarea {
     border: none !important;
   }
 }
+////////////
+.btn-pressed {
+  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+    inset 8px 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+////////////
 // Preview Modal
 .modal {
   .modal-content {
@@ -282,6 +284,7 @@ textarea {
   .modal-body {
     #pre_modal {
       font-family: "Vazirmatn", sans-serif;
+      font-size: 1rem;
       direction: rtl;
       padding: 1rem;
       border-radius: 1rem;
@@ -293,26 +296,24 @@ textarea {
   .modal-footer {
     border-top: 0 none;
     direction: rtl;
-    margin: auto;
     margin-bottom: 1rem;
     position: relative;
     text-align: center;
     transition: all 0.1s ease-in-out;
-    .footer-button {
+    .modal-button {
+      margin: auto;
+      // width: 50%;
+      // padding: 2rem;
+      padding: 1rem 4rem;
+      align-content: center;
+      color: $text-color;
       box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
         6px 6px 10px rgba(0, 0, 0, 0.2);
-      color: $text-color;
-      padding: 1rem 4rem;
       // flex-basis: auto;
       &:hover {
         opacity: 0.8;
         box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
           6px 6px 10px rgba(0, 0, 0, 0.2);
-      }
-      &:active {
-        opacity: 1;
-        box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
-          inset 8px 8px 16px rgba(0, 0, 0, 0.1);
       }
     }
     //
@@ -322,14 +323,12 @@ textarea {
 .alarm-form {
   position: relative;
   transition: $change-page-transition;
-  opacity: 1;
 }
 /////////////////////////////////////
 .contact-form {
   position: relative;
   top: -1000px;
   transition: $change-page-transition;
-  opacity: 0;
   .container {
     // position: relative;
     width: 40rem;

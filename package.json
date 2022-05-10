@@ -4,14 +4,10 @@
   "description": "",
   "default": "index.html",
   "dependencies": {
-    "leaflet": "^1.7.1",
-    "parcel": "^2.4.1"
+    "leaflet": "^1.7.1"
   },
   "devDependencies": {},
-  "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir ./dist"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ESMonitoring/Alarmer.git"

@@ -1,4 +1,5 @@
 "strict-mode";
+// $("#prev-modal").modal();
 
 const names = [],
   codesDB = [];
@@ -8,7 +9,6 @@ let ES_site = [];
 let alarm_text;
 let codeNOES = [];
 let coords = [];
-let inf_state = "علت";
 
 $.getJSON("data.json", function (json) {
   for (let i = 0; i < Object.keys(json).length; i++) {
@@ -17,8 +17,39 @@ $.getJSON("data.json", function (json) {
     coords.push([json[i].lat, json[i].long]);
   }
 });
-$('[data-toggle="tooltip"]').tooltip();
+////////////////////////////////////////////////////////////
+document.getElementById("main-page").addEventListener("click", function () {
+  document.getElementById("main-page").classList.add("active");
+  document.getElementById("contact-us").classList.remove("active");
+  ///////////////
+  document.getElementsByClassName("alarm-form")[0].style.opacity = 1;
+  document.getElementsByClassName("contact-form")[0].style.opacity = 0;
+  document.getElementsByClassName("alarm-form")[0].style.top = 0;
+  document.getElementsByClassName("contact-form")[0].style.top = "-1000px";
+});
 
+document.getElementById("contact-us").addEventListener("click", function () {
+  document.getElementById("main-page").classList.remove("active");
+  document.getElementById("contact-us").classList.add("active");
+  ///////////////
+  document.getElementsByClassName("alarm-form")[0].style.opacity = 0;
+  document.getElementsByClassName("contact-form")[0].style.opacity = 1;
+  document.getElementsByClassName("contact-form")[0].style.top = 0;
+  document.getElementsByClassName("alarm-form")[0].style.top = "-1000px";
+});
+/////////////////////////////////////////////////////////////////////
+document.getElementById("open-map").addEventListener("click", function () {
+  clearLocalStorage();
+  window.open("Map.html");
+});
+document.getElementById("weather").addEventListener("click", function () {
+  window.open("http://www.esfahanmet.ir/");
+});
+
+function auto_grow(element) {
+  element.style.height = "5px";
+  element.style.height = element.scrollHeight + "px";
+}
 ////////////////////////////////////////////////////////////
 //auto-complete of alarms field
 $(function () {
@@ -131,21 +162,6 @@ function DatabaseMaker() {
       selected_site_names.push("کد سایت اشتباه/ناموجود⭐");
     }
   });
-
-  // for (let a = 0; a < ES_site.length; a++) {
-  //   for (let b = 0; b < codesDB.length; b++) {
-  //     if (ES_site[a] == codesDB[b]) {
-  //       // selected_site_codes[a] = ES_site[b];
-  //       selected_site_names[a] = names[b];
-  //       selected_site_coords[a] = coords[b];
-  //     } else {
-  //       if (!selected_site_names[a]) {
-  //         selected_site_names[a] = "کد سایت اشتباه/ناموجود⭐";
-  //         selected_site_coords[a] = [null, null];
-  //       }
-  //     }
-  //   }
-  // }
 }
 document.getElementById("clear").addEventListener("click", function () {
   // document.getElementById("site_code").value = "";
@@ -157,7 +173,7 @@ document.getElementById("clear").addEventListener("click", function () {
 });
 
 function textfield_ClearEffect(str) {
-  document.getElementById(`${str}`).style.backgroundColor = "#e6babd";
+  document.getElementById(`${str}`).style.backgroundColor = "red";
   setTimeout(() => {
     //Run after specified time has passed
     document.getElementById(`${str}`).style.backgroundColor = "white";
@@ -170,30 +186,7 @@ document.getElementById("preview").addEventListener("click", function () {
   preview_Maker();
 });
 
-// document.getElementById("rep_to").addEventListener("keyup", function (e) {
-//   if (e.keyCode === 13) {
-//     e.preventDefault();
-//     document.getElementById("preview").click();
-//   }
-// });
-let input = document.getElementById("sharh");
-input.addEventListener("change", function () {
-  if (this.checked) {
-    inf_state = "علت";
-  } else {
-    inf_state = "شرح";
-  }
-});
-
 function text_maker() {
-  // const options = {
-  //   month: "2-digit",
-  //   day: "2-digit",
-  //   year: "numeric",
-  // };
-  // const today = Intl.DateTimeFormat("fa-IR", options).format(new Date());
-
-  //second, more campatible implemention
   let today = new Date()
     .toLocaleDateString("fa-IR")
     .replace(/([۰-۹])/g, (token) =>
@@ -221,7 +214,7 @@ function text_maker() {
       //when no inf
       return "";
     } else {
-      return `${inf_state}: ${more_inf}\n`;
+      return `${more_inf}\n`;
     }
   })()}`;
   ///////////////////////////////////////////////
@@ -247,11 +240,7 @@ function text_maker() {
   })()}`;
   ////////////////////////////////////////////////
   IsMonitorong = `${(function IsMonitorong() {
-    if (document.getElementById("fixed_monitoring").checked === false) {
-      return "";
-    } else {
-      return "مانیتورینگ: ";
-    }
+    return `${monitoring}`;
   })()}`;
 
   ////////////////////////////////////////////////
@@ -260,13 +249,14 @@ function text_maker() {
   }
   alarm_text = `${today}\n${siteha}${site_list}آلارم: ${alarm_name}
 زمان آلارم: ${time_stamp}
-${info_list}${reportedto}${IsMonitorong}${monitoring}`;
+${info_list}${reportedto}${monitoring}`;
 
   document.getElementById("pre_modal").textContent = alarm_text;
   document.getElementById("copybutton").textContent = "کپی!";
-  $("#myModal").modal();
+  $("#prev-modal").modal();
   clearCache();
 }
+
 function clearLocalStorage() {
   window.localStorage.clear();
   // window.localStorage.removeItem("codesites");
@@ -285,7 +275,12 @@ function clearCache() {
 }
 document.getElementById("copybutton").addEventListener("click", function () {
   copyToClipboard(alarm_text);
-  document.getElementById("copybutton").textContent = "کپی شد!";
+  document.getElementById("copybutton").textContent = "کپی شد";
+  document.getElementById("copybutton").style.color = "green";
+  document.getElementById("copybutton").classList.add("btn-pressed");
+});
+$("#prev-modal").on("hidden.bs.modal", function () {
+  document.getElementById("copybutton").classList.remove("btn-pressed");
 });
 // Map
 document.getElementById("showonmap").addEventListener("click", function () {
@@ -295,6 +290,8 @@ document.getElementById("showonmap").addEventListener("click", function () {
   clearCache();
   window.open("Map.html");
 });
+
+// Ideas:
 
 // async function QuoteFetch() {
 //   try {
@@ -310,3 +307,5 @@ document.getElementById("showonmap").addEventListener("click", function () {
 //   }
 // }
 // QuoteFetch();
+
+// Get background Image from source.unsplash

@@ -4,15 +4,13 @@
   box-sizing: border-box;
 }
 
-.hide {
-  visibility: hidden;
-}
-
 body {
   background: #e4ebf5;
+  height: 100vh;
 }
 
 body #main-grid {
+  height: 100vh;
   display: grid;
   grid-template-areas: "main main main main main main header" "main main main main main main menu" "main main main main main main ." "main main main main main main footer";
 }
@@ -167,9 +165,11 @@ footer #developer {
   font-weight: 600;
 }
 
-footer #update-time {
-  font-size: 0.8rem;
+footer .quote {
+  max-width: 15vw;
+  font-size: 0.7rem;
   color: #777;
+  margin: auto;
 }
 
 #site_code {

@@ -6,22 +6,16 @@ $blue-color: rgb(231, 231, 240);
 $change-page-transition: all 1.5s;
 * {
   font-family: "Vazirmatn", sans-serif;
-  // align-content: center;
   text-align: center;
-  // direction: rtl;
   box-sizing: border-box;
 }
 
-.hide {
-  visibility: hidden;
-}
-
 body {
-  // height: 100vh;
   background: #e4ebf5;
+  height: 100vh;
   #main-grid {
+    height: 100vh;
     display: grid;
-    // grid-gap: 10px;
     grid-template-areas:
       "main main main main main main header"
       "main main main main main main menu"
@@ -195,9 +189,11 @@ footer {
     font-family: "Roboto", sans-serif;
     font-weight: 600;
   }
-  #update-time {
-    font-size: 0.8rem;
+  .quote {
+    max-width: 15vw;
+    font-size: 0.7rem;
     color: #777;
+    margin: auto;
   }
 }
 #site_code {
@@ -302,7 +298,6 @@ textarea {
     transition: all 0.1s ease-in-out;
     .modal-button {
       margin: auto;
-      // width: 50%;
       // padding: 2rem;
       padding: 1rem 4rem;
       align-content: center;

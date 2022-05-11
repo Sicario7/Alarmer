@@ -293,19 +293,18 @@ document.getElementById("showonmap").addEventListener("click", function () {
 
 // Ideas:
 
-// async function QuoteFetch() {
-//   try {
-//     const fetchedData = await fetch(
-//       "https://inspiration.goprogram.ai"
-//       //,{mode: "no-cors", }
-//     );
-//     console.log(fetchedData);
-//     const quote = fetchedData.json();
-//     console.log(quote);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
-// QuoteFetch();
-
-// Get background Image from source.unsplash
+async function QuoteFetch() {
+  try {
+    const fetchedData = await fetch("https://api.quotable.io/random");
+    const quote = fetchedData.json().then(function (data) {
+      console.log(data);
+      document.getElementById(
+        "quote-text"
+      ).textContent = `${data.content}(${data.author})`;
+      // document.getElementById("quote-author").textContent = data.author;
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+QuoteFetch();

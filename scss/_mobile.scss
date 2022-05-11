@@ -94,17 +94,10 @@ $mobile-size: 768px;
   }
   //////////////////////////
   footer {
-    #developer {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-family: "Roboto", sans-serif;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    #update-time {
-      font-size: 0.7rem;
-      color: #777;
-      margin-bottom: 0.5rem;
+    .quote {
+      max-width: 90%;
+      font-size: 1rem;
+      margin: 1rem auto;
     }
   }
   /////////////////////////

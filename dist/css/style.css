@@ -166,8 +166,9 @@ footer #developer {
 }
 
 footer .quote {
+  font-family: "Roboto", sans-serif;
   max-width: 15vw;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #777;
   margin: auto;
 }
@@ -449,17 +450,10 @@ textarea {
   #alarm-text .form-control {
     padding: 1rem;
   }
-  footer #developer {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  footer #update-time {
-    font-size: 0.7rem;
-    color: #777;
-    margin-bottom: 0.5rem;
+  footer .quote {
+    max-width: 90%;
+    font-size: 1rem;
+    margin: 1rem auto;
   }
   .modal-footer .modal-button {
     padding: 2rem;

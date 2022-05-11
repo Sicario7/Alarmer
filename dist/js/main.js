@@ -252,7 +252,7 @@ function text_maker() {
 ${info_list}${reportedto}${monitoring}`;
 
   document.getElementById("pre_modal").textContent = alarm_text;
-  document.getElementById("copybutton").textContent = "کپی!";
+  document.getElementById("copybutton").textContent = "کپی پیام";
   $("#prev-modal").modal();
   clearCache();
 }
@@ -278,6 +278,9 @@ document.getElementById("copybutton").addEventListener("click", function () {
   document.getElementById("copybutton").textContent = "کپی شد";
   document.getElementById("copybutton").style.color = "green";
   document.getElementById("copybutton").classList.add("btn-pressed");
+  setTimeout(() => {
+    $("#prev-modal").modal("toggle");
+  }, 1000);
 });
 $("#prev-modal").on("hidden.bs.modal", function () {
   document.getElementById("copybutton").classList.remove("btn-pressed");
@@ -297,7 +300,6 @@ async function QuoteFetch() {
   try {
     const fetchedData = await fetch("https://api.quotable.io/random");
     const quote = fetchedData.json().then(function (data) {
-      console.log(data);
       document.getElementById(
         "quote-text"
       ).textContent = `${data.content}(${data.author})`;

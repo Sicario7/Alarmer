@@ -1,25 +1,37 @@
+@import "neu_utilities";
+
 $text-color: #555;
 $yellow-color: blanchedalmond;
 $red-color: rgb(240, 223, 223);
 $blue-color: rgb(231, 231, 240);
 // #TODO:
 $change-page-transition: all 1.5s;
+
+@font-face {
+  font-family: "vazir";
+  // src: url("../Vazir-Medium-FD.woff2") format("woff2");
+  // src: url("../IranianSans.woff2") format("woff2");
+  src: url("../Samim-Bold-FD.woff2") format("woff2");
+}
+
 * {
-  font-family: "Vazirmatn", sans-serif;
+  font-family: "vazir", sans-serif;
   text-align: center;
   box-sizing: border-box;
 }
 
 body {
+  font-family: "vazir", sans-serif;
+
   background: #e4ebf5;
-  height: 100vh;
+  // height: 100vh;
   #main-grid {
     height: 100vh;
     display: grid;
     grid-template-areas:
       "main main main main main main header"
       "main main main main main main menu"
-      "main main main main main main ."
+      "main main main main main main menu"
       "main main main main main main footer";
 
     #title {
@@ -35,6 +47,19 @@ body {
       grid-area: footer;
     }
   }
+  position: relative;
+  // Dark Filter(Overlay)
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   background-color: rgba(200, 100, 100, 0.2);
+  //   height: 100%;
+  //   width: 100%;
+  //   pointer-events: none;
+  //   z-index: 2;
+  // }
 }
 
 #header-title {
@@ -115,6 +140,8 @@ body {
 }
 
 #alarm-text {
+  direction: ltr;
+
   align-items: center;
   width: 95%;
   // height: 100vh;
@@ -127,6 +154,7 @@ body {
 
   .form-group {
     // height: 13%;
+    // direction: rtl;
     width: 90%;
     margin: 1rem auto;
     align-items: center;
@@ -137,23 +165,20 @@ body {
       margin: auto;
     }
   }
-  label {
-    // toggler depends on this :\
-    direction: rtl;
-  }
+  // label {
+  // toggler depends on this :\
+  // direction: rtl;
+  // }
   ::placeholder {
     color: #ccc;
   }
   .labels {
     font-size: 1.2rem;
-    // width: auto;
-    // margin-top: 10px;
     margin-bottom: 0.2rem;
     color: $text-color;
   }
   input,
   textarea {
-    direction: rtl;
     overflow: hidden;
     border: none;
     outline: none;
@@ -171,15 +196,19 @@ body {
 
   .button-group {
     // margin: 1rem;
-    #showonmap:hover {
+    #showonmap {
       background-color: $yellow-color !important;
     }
-    #clear:hover {
+    #clear {
       background-color: $red-color !important;
     }
-    #preview:hover {
+    #preview {
       background-color: $blue-color !important;
     }
+  }
+  textarea.form-control {
+    direction: rtl;
+    height: 64px;
   }
 }
 
@@ -218,37 +247,6 @@ footer {
 textarea {
   min-height: 1rem;
 }
-
-.neu-btn {
-  cursor: pointer;
-  padding: 1em 2rem;
-  margin: 0 0.7rem;
-  background: #efefef;
-  border: none;
-  border-radius: 0.5rem;
-  color: #444;
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: center;
-  outline: none !important;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7),
-    -6px -6px 10px rgba(255, 255, 255, 0.5),
-    6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
-  &:hover {
-    box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
-      -2px -2px 4px rgba(255, 255, 255, 0.4),
-      2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  &:active {
-    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
-      inset -2px -2px 4px rgba(255, 255, 255, 0.5),
-      inset 2px 2px 2px rgba(255, 255, 255, 0.075),
-      inset 2px 2px 4px rgba(0, 0, 0, 0.15);
-    border: none !important;
-  }
-}
 ////////////
 .btn-pressed {
   box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
@@ -282,7 +280,7 @@ textarea {
   }
   .modal-body {
     #pre_modal {
-      font-family: "Vazirmatn", sans-serif;
+      font-family: "vazir", sans-serif;
       font-size: 1rem;
       direction: rtl;
       padding: 1rem;
@@ -320,107 +318,28 @@ textarea {
 /////////////////////////////////////
 .alarm-form {
   position: relative;
+  top: 0;
   transition: $change-page-transition;
 }
 /////////////////////////////////////
-.contact-form {
+
+/////////////////////////////////////
+
+.neu-form {
   position: relative;
   top: -1000px;
   transition: $change-page-transition;
-  .container {
-    // position: relative;
-    width: 40rem;
-    height: auto;
-    border-radius: 1rem;
-    padding: 3rem;
-    margin: 4rem auto;
-    box-sizing: border-box;
-    background: #ecf0f3;
-    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  .neu-form textarea {
+    height: 44px;
   }
+}
 
-  .brand-logo {
-    height: 100px;
-    width: 100px;
-    background: url("https://img.icons8.com/fluency/344/new-message.png");
-    background-size: 70px;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: auto;
-    border-radius: 50%;
-    box-sizing: border-box;
-    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
-  }
-
-  .brand-title {
-    margin-top: 10px;
-    font-weight: 900;
-    font-size: 1.8rem;
-    color: #1da1f2;
-    letter-spacing: 1px;
-  }
-
-  .inputs {
-    text-align: left;
-    margin-top: 30px;
-  }
-
-  label,
-  input,
-  textarea,
-  button {
-    overflow: hidden;
-    width: 100%;
-    padding: 0;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
-  }
-
-  label {
-    margin-bottom: 4px;
-  }
-
-  label:nth-of-type(2) {
-    margin-top: 12px;
-  }
-  textarea::placeholder,
-  input::placeholder {
-    color: gray;
-  }
-
-  input,
+contact-form {
   textarea {
-    background: #ecf0f3;
-    padding: 10px;
-    padding-left: 20px;
-    height: 50px;
-    font-size: 1rem;
-    border-radius: 50px;
-    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
-    direction: rtl;
+    height: 44px;
   }
-
-  button {
-    color: white;
-    margin-top: 20px;
-    background: #1da1f2;
-    height: 40px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 900;
-    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
-    transition: 0.5s;
-  }
-
-  button:hover {
-    box-shadow: none;
-  }
-
-  h1 {
-    position: absolute;
-    top: 0;
-    left: 0;
+  #message {
+    height: 44px;
   }
 }
 @import "mobile";

@@ -8,10 +8,6 @@
     <!-- stop indexing in search engines: -->
     <meta name="robots" content="noindex,nofollow" />
     <link rel="shortcut icon" type="image/x-icon" href="Alarm.ico" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@500&display=swap"
-      rel="stylesheet"
-    />
     <!-- External libraries:
     jquery.min.js
     bootstrap.min.css
@@ -19,7 +15,6 @@
     jquery-ui.min.css
     jquery-ui.min.js
     -->
-
     <!-- for modal -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -64,21 +59,33 @@
       <aside id="side-menu">
         <ul class="nav-list unselectable">
           <li class="nav-item active main" id="main-page"><a>صفحه اصلی</a></li>
-          <li class="nav-item main" id="contact-us"><a>ارتباط با من</a></li>
-          <hr />
+          <!-- <li class="nav-item main" id="settings"><a>تنظیمات</a></li> -->
+          <li class="nav-item main" id="contact-us"><a>پشتیبانی</a></li>
+          <!-- <hr />
           <li class="nav-item" id="open-map"><a>نقشه</a></li>
-          <li class="nav-item" id="weather"><a>هواشناسی</a></li>
+          <li class="nav-item" id="weather"><a>هواشناسی</a></li> -->
         </ul>
       </aside>
-      <form class="main-form contact-form" name="contact" method="POST" netlify>
+      <form
+        class="main-form neu-form contact-form"
+        name="contact"
+        method="POST"
+        netlify
+      >
         <div class="container">
-          <div class="brand-logo"></div>
-          <div class="brand-title">پشتیبانی</div>
+          <div class="form-logo"></div>
+          <div class="form-title">پشتیبانی</div>
           <div class="inputs">
             <label>تلفن</label>
             <input type="tel" placeholder="همراه یا ثابت" name="phone" />
             <label>متن پیام</label>
-            <textarea type="text" placeholder="" name="message-text"></textarea>
+            <textarea
+              id="message"
+              type="text"
+              placeholder=""
+              name="message-text"
+              oninput="auto_grow(this)"
+            ></textarea>
             <button type="submit">ارسال پیام</button>
           </div>
         </div>
@@ -175,7 +182,7 @@
         </div>
         <p id="developer">
           made with <span style="color: red">❤</span> by
-          <a href=""> Y.Basiri </a> - DB:02/20
+          <a href=""> Y.Basiri </a> - DB:03/13
         </p>
       </footer>
     </div>

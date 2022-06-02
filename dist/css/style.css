@@ -1,18 +1,133 @@
+.neu-btn {
+  cursor: pointer;
+  padding: 1em 2rem;
+  margin: 0 0.7rem;
+  background: #efefef;
+  border: none;
+  border-radius: 0.5rem;
+  color: #444;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none !important;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7), -6px -6px 10px rgba(255, 255, 255, 0.5), 6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.neu-btn:hover {
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6), -2px -2px 4px rgba(255, 255, 255, 0.4), 2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.neu-btn:active {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7), inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 2px rgba(255, 255, 255, 0.075), inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+  border: none !important;
+}
+
+.neu-form .container {
+  width: 40rem;
+  border-radius: 1rem;
+  padding: 3rem;
+  margin: 4rem auto;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+.neu-form .form-logo {
+  height: 100px;
+  width: 100px;
+  background: url("https://img.icons8.com/fluency/344/new-message.png");
+  background-size: 70px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+.neu-form .form-title {
+  margin-top: 1rem;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #1da1f2;
+  letter-spacing: 1px;
+}
+
+.neu-form .inputs {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.neu-form label,
+.neu-form input,
+.neu-form textarea,
+.neu-form button {
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.neu-form label {
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.neu-form textarea::placeholder,
+.neu-form input::placeholder {
+  color: gray;
+}
+
+.neu-form input,
+.neu-form textarea {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 44px;
+  font-size: 1rem;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  direction: rtl;
+}
+
+.neu-form button {
+  color: white;
+  margin-top: 20px;
+  background: #1da1f2;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+}
+
+.neu-form button:hover {
+  box-shadow: none;
+}
+
+@font-face {
+  font-family: "vazir";
+  src: url("../Samim-Bold-FD.woff2") format("woff2");
+}
+
 * {
-  font-family: "Vazirmatn", sans-serif;
+  font-family: "vazir", sans-serif;
   text-align: center;
   box-sizing: border-box;
 }
 
 body {
+  font-family: "vazir", sans-serif;
   background: #e4ebf5;
-  height: 100vh;
+  position: relative;
 }
 
 body #main-grid {
   height: 100vh;
   display: grid;
-  grid-template-areas: "main main main main main main header" "main main main main main main menu" "main main main main main main ." "main main main main main main footer";
+  grid-template-areas: "main main main main main main header" "main main main main main main menu" "main main main main main main menu" "main main main main main main footer";
 }
 
 body #main-grid #title {
@@ -91,6 +206,7 @@ body #main-grid #footer {
 }
 
 #alarm-text {
+  direction: ltr;
   align-items: center;
   width: 95%;
   margin: 1rem 1rem 0 1rem;
@@ -112,10 +228,6 @@ body #main-grid #footer {
   margin: auto;
 }
 
-#alarm-text label {
-  direction: rtl;
-}
-
 #alarm-text ::placeholder {
   color: #ccc;
 }
@@ -128,7 +240,6 @@ body #main-grid #footer {
 
 #alarm-text input,
 #alarm-text textarea {
-  direction: rtl;
   overflow: hidden;
   border: none;
   outline: none;
@@ -145,16 +256,21 @@ body #main-grid #footer {
   transition-duration: 1s;
 }
 
-#alarm-text .button-group #showonmap:hover {
+#alarm-text .button-group #showonmap {
   background-color: blanchedalmond !important;
 }
 
-#alarm-text .button-group #clear:hover {
+#alarm-text .button-group #clear {
   background-color: #f0dfdf !important;
 }
 
-#alarm-text .button-group #preview:hover {
+#alarm-text .button-group #preview {
   background-color: #e7e7f0 !important;
+}
+
+#alarm-text textarea.form-control {
+  direction: rtl;
+  height: 64px;
 }
 
 footer #developer {
@@ -189,32 +305,6 @@ textarea {
   min-height: 1rem;
 }
 
-.neu-btn {
-  cursor: pointer;
-  padding: 1em 2rem;
-  margin: 0 0.7rem;
-  background: #efefef;
-  border: none;
-  border-radius: 0.5rem;
-  color: #444;
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: center;
-  outline: none !important;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7), -6px -6px 10px rgba(255, 255, 255, 0.5), 6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-.neu-btn:hover {
-  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6), -2px -2px 4px rgba(255, 255, 255, 0.4), 2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.neu-btn:active {
-  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7), inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 2px rgba(255, 255, 255, 0.075), inset 2px 2px 4px rgba(0, 0, 0, 0.15);
-  border: none !important;
-}
-
 .btn-pressed {
   box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1) !important;
 }
@@ -246,7 +336,7 @@ textarea {
 }
 
 .modal .modal-body #pre_modal {
-  font-family: "Vazirmatn", sans-serif;
+  font-family: "vazir", sans-serif;
   font-size: 1rem;
   direction: rtl;
   padding: 1rem;
@@ -278,109 +368,26 @@ textarea {
 
 .alarm-form {
   position: relative;
+  top: 0;
   transition: all 1.5s;
 }
 
-.contact-form {
+.neu-form {
   position: relative;
   top: -1000px;
   transition: all 1.5s;
 }
 
-.contact-form .container {
-  width: 40rem;
-  height: auto;
-  border-radius: 1rem;
-  padding: 3rem;
-  margin: 4rem auto;
-  box-sizing: border-box;
-  background: #ecf0f3;
-  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+.neu-form .neu-form textarea {
+  height: 44px;
 }
 
-.contact-form .brand-logo {
-  height: 100px;
-  width: 100px;
-  background: url("https://img.icons8.com/fluency/344/new-message.png");
-  background-size: 70px;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: auto;
-  border-radius: 50%;
-  box-sizing: border-box;
-  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+contact-form textarea {
+  height: 44px;
 }
 
-.contact-form .brand-title {
-  margin-top: 10px;
-  font-weight: 900;
-  font-size: 1.8rem;
-  color: #1da1f2;
-  letter-spacing: 1px;
-}
-
-.contact-form .inputs {
-  text-align: left;
-  margin-top: 30px;
-}
-
-.contact-form label,
-.contact-form input,
-.contact-form textarea,
-.contact-form button {
-  overflow: hidden;
-  width: 100%;
-  padding: 0;
-  border: none;
-  outline: none;
-  box-sizing: border-box;
-}
-
-.contact-form label {
-  margin-bottom: 4px;
-}
-
-.contact-form label:nth-of-type(2) {
-  margin-top: 12px;
-}
-
-.contact-form textarea::placeholder,
-.contact-form input::placeholder {
-  color: gray;
-}
-
-.contact-form input,
-.contact-form textarea {
-  background: #ecf0f3;
-  padding: 10px;
-  padding-left: 20px;
-  height: 50px;
-  font-size: 1rem;
-  border-radius: 50px;
-  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
-  direction: rtl;
-}
-
-.contact-form button {
-  color: white;
-  margin-top: 20px;
-  background: #1da1f2;
-  height: 40px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 900;
-  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
-  transition: 0.5s;
-}
-
-.contact-form button:hover {
-  box-shadow: none;
-}
-
-.contact-form h1 {
-  position: absolute;
-  top: 0;
-  left: 0;
+contact-form #message {
+  height: 44px;
 }
 
 @media (max-width: 768px) {

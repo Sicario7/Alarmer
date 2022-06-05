@@ -10,20 +10,13 @@ $mobile-size: 768px;
         "menu"
         "main"
         "footer";
-
-      #title {
-        grid-area: header;
-      }
-      .main-form {
-        grid-area: main;
-      }
-      #side-menu {
-        grid-area: menu;
-      }
-      #footer {
-        grid-area: footer;
-      }
     }
+  }
+  //////////////////////////
+
+  //////////////////////////
+  #header-title {
+    margin-right: 0;
   }
   //////////////////////////
   #side-menu {
@@ -34,8 +27,6 @@ $mobile-size: 768px;
     }
 
     li {
-      color: #888;
-      width: 100%;
       font-size: 0.8rem;
     }
     .active {
@@ -69,7 +60,9 @@ $mobile-size: 768px;
       width: 100%;
       // Buttons Styling:
     }
-
+    #fullscreen {
+      visibility: hidden;
+    }
     .button-group {
       display: flex;
       flex-direction: column;
@@ -83,6 +76,11 @@ $mobile-size: 768px;
     .form-control {
       // Height of text inputs
       padding: 1rem;
+    }
+
+    textarea.form-control {
+      direction: rtl;
+      height: 56px;
     }
   }
   //////////////////////////

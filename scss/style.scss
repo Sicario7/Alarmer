@@ -27,6 +27,7 @@ body {
   // height: 100vh;
   #main-grid {
     height: 100vh;
+    width: 100vw;
     display: grid;
     grid-template-areas:
       "main main main main main main header"
@@ -124,7 +125,6 @@ body {
       cursor: pointer;
       color: #222;
       padding: 0.4rem 1.5rem;
-      // background-color: cadetblue;
       box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
         inset -2px -2px 4px rgba(255, 255, 255, 0.5),
         inset 2px 2px 2px rgba(255, 255, 255, 0.075),
@@ -141,9 +141,8 @@ body {
 
 #alarm-text {
   direction: ltr;
-
   align-items: center;
-  width: 95%;
+  // width: 95%;
   // height: 100vh;
   margin: 1rem 1rem 0 1rem;
   padding: 1rem 1rem;
@@ -152,6 +151,13 @@ body {
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
     -9px -9px 16px rgba(163, 177, 198, 0.6);
 
+  #fullscreen {
+    user-select: none;
+    cursor: pointer;
+    position: absolute;
+    right: 4.5vw;
+    top: 2.5rem;
+  }
   .form-group {
     // height: 13%;
     // direction: rtl;
@@ -189,7 +195,9 @@ body {
     box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
   }
   .form-control {
-    background-color: aliceblue;
+    // background-color: aliceblue;
+    background: #e4ebf5;
+
     transition-property: background;
     transition-duration: 1s;
   }
@@ -213,6 +221,7 @@ body {
 }
 
 footer {
+  align-self: flex-end;
   #developer {
     font-size: 0.6rem;
     text-transform: uppercase;
@@ -319,6 +328,7 @@ textarea {
 .alarm-form {
   position: relative;
   top: 0;
+  // margin: auto;
   transition: $change-page-transition;
 }
 /////////////////////////////////////

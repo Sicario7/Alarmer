@@ -126,6 +126,7 @@ body {
 
 body #main-grid {
   height: 100vh;
+  width: 100vw;
   display: grid;
   grid-template-areas: "main main main main main main header" "main main main main main main menu" "main main main main main main menu" "main main main main main main footer";
 }
@@ -208,12 +209,19 @@ body #main-grid #footer {
 #alarm-text {
   direction: ltr;
   align-items: center;
-  width: 95%;
   margin: 1rem 1rem 0 1rem;
   padding: 1rem 1rem;
   padding-top: 0.5rem;
   border-radius: 3rem;
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(163, 177, 198, 0.6);
+}
+
+#alarm-text #fullscreen {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  right: 4.5vw;
+  top: 2.5rem;
 }
 
 #alarm-text .form-group {
@@ -251,7 +259,7 @@ body #main-grid #footer {
 }
 
 #alarm-text .form-control {
-  background-color: aliceblue;
+  background: #e4ebf5;
   transition-property: background;
   transition-duration: 1s;
 }
@@ -271,6 +279,10 @@ body #main-grid #footer {
 #alarm-text textarea.form-control {
   direction: rtl;
   height: 64px;
+}
+
+footer {
+  align-self: flex-end;
 }
 
 footer #developer {
@@ -396,17 +408,8 @@ contact-form #message {
     grid-gap: 10px;
     grid-template-areas: "header" "menu" "main" "footer";
   }
-  body #main-grid #title {
-    grid-area: header;
-  }
-  body #main-grid .main-form {
-    grid-area: main;
-  }
-  body #main-grid #side-menu {
-    grid-area: menu;
-  }
-  body #main-grid #footer {
-    grid-area: footer;
+  #header-title {
+    margin-right: 0;
   }
   #side-menu {
     border: none;
@@ -417,8 +420,6 @@ contact-form #message {
     flex-direction: row;
   }
   #side-menu li {
-    color: #888;
-    width: 100%;
     font-size: 0.8rem;
   }
   #side-menu .active {
@@ -445,6 +446,9 @@ contact-form #message {
   #alarm-text .form-group {
     width: 100%;
   }
+  #alarm-text #fullscreen {
+    visibility: hidden;
+  }
   #alarm-text .button-group {
     display: flex;
     flex-direction: column;
@@ -456,6 +460,10 @@ contact-form #message {
   }
   #alarm-text .form-control {
     padding: 1rem;
+  }
+  #alarm-text textarea.form-control {
+    direction: rtl;
+    height: 56px;
   }
   footer .quote {
     max-width: 90%;

@@ -53,7 +53,7 @@
     <div id="main-grid">
       <header id="title">
         <nav id="main-nav">
-          <div id="header-title">دستیار آلارم</div>
+          <div id="header-title" class="unselectable">دستیار آلارم</div>
         </nav>
       </header>
       <aside id="side-menu">
@@ -90,8 +90,9 @@
           </div>
         </div>
       </form>
-      <section class="main-form alarm-form">
+      <section class="main-form alarm-form unselectable">
         <form id="alarm-text">
+          <span id="fullscreen">➡</span>
           <div class="form-group">
             <label class="labels unselectable">کدسایت</label>
             <input
@@ -175,14 +176,14 @@
       </section>
       <!-- End of main-form -->
 
-      <footer id="footer">
+      <footer id="footer" class="unselectable">
         <div class="quote">
           <p id="quote-text"></p>
           <!-- <p id="quote-author"></p> -->
         </div>
         <p id="developer">
           made with <span style="color: red">❤</span> by
-          <a href=""> Y.Basiri </a> - DB:03/13
+          <a href=""> Y.Basiri</a> - DB:03/13
         </p>
       </footer>
     </div>

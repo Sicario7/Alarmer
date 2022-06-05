@@ -55,7 +55,30 @@ $(document).ready(function () {
     }
   }
   /////////////////////////////////////////////////////////
+  document.getElementById("fullscreen").addEventListener("click", function () {
+    if (document.getElementById("title").style.display == "none") {
+      document.getElementById("title").style.display = "block";
+      document.getElementById("footer").style.display = "block";
+      document.getElementById("side-menu").style.display = "block";
+      document
+        .getElementById("main-grid")
+        .style.setProperty(
+          "grid-template-areas",
+          '"main main main main main main header" "main main main main main main menu" "main main main main main main menu" "main main main main main main footer"',
+          "important"
+        );
+      this.textContent = "➡";
+    } else {
+      document.getElementById("main-grid").style.gridTemplateAreas = '"main"';
+      document.getElementById("title").style.display = "none";
+      document.getElementById("footer").style.display = "none";
+      document.getElementById("side-menu").style.display = "none";
+      this.textContent = "⬅";
+    }
+  });
+  /////////////////////////////////////////////////////////
   function auto_grow(element) {
+    console.log(element.style.height);
     element.style.height = "5px";
     element.style.height = element.scrollHeight + "px";
   }
@@ -187,7 +210,7 @@ $(document).ready(function () {
     document.getElementById(`${str}`).style.backgroundColor = "red";
     setTimeout(() => {
       //Run after specified time has passed
-      document.getElementById(`${str}`).style.backgroundColor = "white";
+      document.getElementById(`${str}`).style.backgroundColor = "#e4ebf5";
     }, 500);
     document.getElementById(`${str}`).value = "";
   }

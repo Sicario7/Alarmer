@@ -310,7 +310,8 @@ footer .quote {
 }
 
 #pre_modal {
-  overflow: hidden;
+  overflow: auto;
+  text-align: center;
 }
 
 textarea {

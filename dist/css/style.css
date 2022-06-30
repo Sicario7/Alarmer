@@ -225,6 +225,7 @@ body #main-grid #footer {
 }
 
 #alarm-text .form-group {
+  direction: rtl;
   width: 90%;
   margin: 1rem auto;
   align-items: center;
@@ -305,6 +306,10 @@ footer .quote {
   direction: ltr;
 }
 
+#alarminput {
+  direction: ltr;
+}
+
 .unselectable {
   user-select: none;
 }
@@ -343,7 +348,7 @@ textarea {
   align-self: flex-end;
   font-size: 2rem;
   margin: 1rem;
-  padding: 0.3rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 50%;
   background-color: #f0ddd9;
 }

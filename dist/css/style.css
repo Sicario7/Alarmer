@@ -25,7 +25,6 @@
 }
 
 .neu-form .container {
-  width: 40rem;
   border-radius: 1rem;
   padding: 3rem;
   margin: 4rem auto;
@@ -59,10 +58,17 @@
   margin-top: 30px;
 }
 
+.neu-form input,
+.neu-form textarea {
+  border: none;
+  outline: none;
+}
+
 .neu-form label,
 .neu-form input,
 .neu-form textarea,
 .neu-form button {
+  margin-bottom: 1rem;
   overflow: hidden;
   width: 100%;
   padding: 0;
@@ -83,7 +89,6 @@
 .neu-form textarea {
   background: #ecf0f3;
   padding: 10px;
-  padding-left: 20px;
   height: 44px;
   font-size: 1rem;
   border-radius: 50px;
@@ -114,19 +119,19 @@
 
 * {
   font-family: "vazir", sans-serif;
-  text-align: center;
   box-sizing: border-box;
+  text-align: center;
 }
 
 body {
   font-family: "vazir", sans-serif;
   background: #e4ebf5;
   position: relative;
+  line-height: 1.1rem;
 }
 
 body #main-grid {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
   display: grid;
   grid-template-areas: "main main main main main main header" "main main main main main main menu" "main main main main main main menu" "main main main main main main footer";
 }
@@ -207,13 +212,14 @@ body #main-grid #footer {
 }
 
 #alarm-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   direction: ltr;
   align-items: center;
-  margin: 1rem 1rem 0 1rem;
   padding: 1rem 1rem;
   padding-top: 0.5rem;
   border-radius: 3rem;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(163, 177, 198, 0.6);
 }
 
 #alarm-text #fullscreen {
@@ -221,7 +227,7 @@ body #main-grid #footer {
   cursor: pointer;
   position: absolute;
   right: 4.5vw;
-  top: 2.5rem;
+  top: 1rem;
 }
 
 #alarm-text .form-group {
@@ -233,17 +239,13 @@ body #main-grid #footer {
   align-content: center;
 }
 
-#alarm-text .form-group:last-child {
-  margin: auto;
-}
-
 #alarm-text ::placeholder {
   color: #ccc;
 }
 
 #alarm-text .labels {
   font-size: 1.2rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
   color: #555;
 }
 

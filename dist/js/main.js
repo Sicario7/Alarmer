@@ -3,10 +3,9 @@ function auto_grow(element) {
   element.style.height = "5px";
   element.style.height = element.scrollHeight + "px";
 }
-if (screen.width < 576) {
-  document.getElementById("prev-modal").setAttribute("data-backdrop", "false");
-}
 $(document).ready(function () {
+  // $("#prev-modal").modal(); // modal test
+
   const names = [],
     codesDB = [];
   let selected_site_names = [];

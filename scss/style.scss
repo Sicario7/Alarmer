@@ -1,5 +1,4 @@
 @import "neu_utilities";
-
 $text-color: #555;
 $yellow-color: blanchedalmond;
 $red-color: rgb(240, 223, 223);
@@ -9,25 +8,24 @@ $change-page-transition: all 1.5s;
 
 @font-face {
   font-family: "vazir";
-  // src: url("../Vazir-Medium-FD.woff2") format("woff2");
-  // src: url("../IranianSans.woff2") format("woff2");
   src: url("../Samim-Bold-FD.woff2") format("woff2");
 }
 
 * {
   font-family: "vazir", sans-serif;
-  text-align: center;
   box-sizing: border-box;
+  text-align: center;
 }
 
 body {
   font-family: "vazir", sans-serif;
-
   background: #e4ebf5;
-  // height: 100vh;
+  position: relative;
+  line-height: 1.1rem;
+  // height: 100%;
   #main-grid {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    // width: 100vw;
     display: grid;
     grid-template-areas:
       "main main main main main main header"
@@ -48,7 +46,6 @@ body {
       grid-area: footer;
     }
   }
-  position: relative;
   // Dark Filter(Overlay)
   // &::after {
   //   content: "";
@@ -140,26 +137,29 @@ body {
 }
 
 #alarm-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   direction: ltr;
   align-items: center;
   // width: 95%;
-  // height: 100vh;
-  margin: 1rem 1rem 0 1rem;
+  // height: 100%;
+  // margin: 1rem 1rem 0 1rem;
   padding: 1rem 1rem;
   padding-top: 0.5rem;
   border-radius: 3rem;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-    -9px -9px 16px rgba(163, 177, 198, 0.6);
+  // box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+  //   -9px -9px 16px rgba(163, 177, 198, 0.6);
 
   #fullscreen {
     user-select: none;
     cursor: pointer;
     position: absolute;
     right: 4.5vw;
-    top: 2.5rem;
+    top: 1rem;
   }
   .form-group {
-    // height: 13%;
+    // height: 20%;
     direction: rtl;
     width: 90%;
     margin: 1rem auto;
@@ -168,7 +168,7 @@ body {
     align-content: center;
     // Buttons Styling:
     &:last-child {
-      margin: auto;
+      // margin: auto;
     }
   }
   // label {
@@ -180,7 +180,7 @@ body {
   }
   .labels {
     font-size: 1.2rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
     color: $text-color;
   }
   input,
@@ -195,10 +195,9 @@ body {
     box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
   }
   .form-control {
-    // height: auto;
+    // height: 100%;
     // background-color: aliceblue;
     background: #e4ebf5;
-
     transition-property: background;
     transition-duration: 1s;
   }
@@ -333,6 +332,7 @@ textarea {
 /////////////////////////////////////
 .alarm-form {
   position: relative;
+  // height: 100vh;
   top: 0;
   // margin: auto;
   transition: $change-page-transition;

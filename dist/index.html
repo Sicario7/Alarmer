@@ -24,24 +24,25 @@
     ></script>
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     />
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
 
     <!-- for autocompletion -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
-      integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
-      crossorigin="anonymous"
-    />
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
+      integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"
+      integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- //////////////////////////////////////////////////////////////////////// -->
     <script type="text/javascript" src="data.json"></script>
@@ -73,7 +74,7 @@
         method="POST"
         netlify
       >
-        <div class="container">
+        <div class="container unselectable">
           <div class="form-logo"></div>
           <div class="form-title">پشتیبانی</div>
           <div class="inputs">
@@ -81,6 +82,7 @@
             <input type="tel" placeholder="همراه یا ثابت" name="phone" />
             <label>متن پیام</label>
             <textarea
+              required
               id="message"
               type="text"
               placeholder=""
@@ -188,8 +190,8 @@
         </p>
       </footer>
     </div>
-    <!-- Modal -->
 
+    <!-- Modal -->
     <section
       class="modal fade"
       tabindex="-1"
@@ -198,7 +200,7 @@
       aria-labelledby="prev-modal"
       id="prev-modal"
     >
-      <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button

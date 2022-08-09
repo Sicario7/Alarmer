@@ -14,11 +14,9 @@
   transition: 0.2s ease-in-out;
   box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7), -6px -6px 10px rgba(255, 255, 255, 0.5), 6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
 }
-
 .neu-btn:hover {
   box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6), -2px -2px 4px rgba(255, 255, 255, 0.4), 2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .neu-btn:active {
   box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7), inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 2px rgba(255, 255, 255, 0.075), inset 2px 2px 4px rgba(0, 0, 0, 0.15);
   border: none !important;
@@ -31,7 +29,6 @@
   background: #ecf0f3;
   box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
 }
-
 .neu-form .form-logo {
   height: 100px;
   width: 100px;
@@ -44,7 +41,6 @@
   box-sizing: border-box;
   box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
 }
-
 .neu-form .form-title {
   margin-top: 1rem;
   font-weight: 900;
@@ -52,18 +48,15 @@
   color: #1da1f2;
   letter-spacing: 1px;
 }
-
 .neu-form .inputs {
   text-align: center;
   margin-top: 30px;
 }
-
 .neu-form input,
 .neu-form textarea {
   border: none;
   outline: none;
 }
-
 .neu-form label,
 .neu-form input,
 .neu-form textarea,
@@ -74,17 +67,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 .neu-form label {
   margin-bottom: 4px;
   margin-top: 0;
 }
-
 .neu-form textarea::placeholder,
 .neu-form input::placeholder {
   color: gray;
 }
-
 .neu-form input,
 .neu-form textarea {
   background: #ecf0f3;
@@ -95,7 +85,6 @@
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
   direction: rtl;
 }
-
 .neu-form button {
   color: white;
   margin-top: 20px;
@@ -107,7 +96,6 @@
   box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
   transition: 0.5s;
 }
-
 .neu-form button:hover {
   box-shadow: none;
 }
@@ -116,7 +104,6 @@
   font-family: "vazir";
   src: url("../Samim-Bold-FD.woff2") format("woff2");
 }
-
 * {
   font-family: "vazir", sans-serif;
   box-sizing: border-box;
@@ -129,25 +116,20 @@ body {
   position: relative;
   line-height: 1.1rem;
 }
-
 body #main-grid {
   height: 100%;
   display: grid;
-  grid-template-areas: "main main main main main main header" "main main main main main main menu" "main main main main main main menu" "main main main main main main footer";
+  grid-template-areas: "main main main main main main header" "main main main main main main menu" "main main main main main main menu" "main main main main main main footer";
 }
-
 body #main-grid #title {
   grid-area: header;
 }
-
 body #main-grid .main-form {
   grid-area: main;
 }
-
 body #main-grid #side-menu {
   grid-area: menu;
 }
-
 body #main-grid #footer {
   grid-area: footer;
 }
@@ -171,14 +153,12 @@ body #main-grid #footer {
   flex-direction: column;
   align-items: center;
 }
-
 #side-menu li {
   color: #888;
   list-style-type: none;
   width: 100%;
   margin-top: 0.5rem;
 }
-
 #side-menu .active {
   color: #333;
   font-weight: bold;
@@ -187,7 +167,6 @@ body #main-grid #footer {
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
-
 #side-menu a {
   width: 100%;
   text-decoration: none;
@@ -196,7 +175,6 @@ body #main-grid #footer {
   display: block;
   padding: 0.4rem 1.5rem;
 }
-
 #side-menu a:hover {
   border-right: 3px #666 solid;
   cursor: pointer;
@@ -221,7 +199,6 @@ body #main-grid #footer {
   padding-top: 0.5rem;
   border-radius: 3rem;
 }
-
 #alarm-text #fullscreen {
   user-select: none;
   cursor: pointer;
@@ -229,7 +206,6 @@ body #main-grid #footer {
   right: 4.5vw;
   top: 1rem;
 }
-
 #alarm-text .form-group {
   direction: rtl;
   width: 90%;
@@ -238,17 +214,14 @@ body #main-grid #footer {
   align-self: center;
   align-content: center;
 }
-
 #alarm-text ::placeholder {
   color: #ccc;
 }
-
 #alarm-text .labels {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   color: #555;
 }
-
 #alarm-text input,
 #alarm-text textarea {
   overflow: hidden;
@@ -260,25 +233,20 @@ body #main-grid #footer {
   border-radius: 1rem;
   box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
 }
-
 #alarm-text .form-control {
   background: #e4ebf5;
   transition-property: background;
   transition-duration: 1s;
 }
-
 #alarm-text .button-group #showonmap {
   background-color: blanchedalmond !important;
 }
-
 #alarm-text .button-group #clear {
-  background-color: #f0dfdf !important;
+  background-color: rgb(240, 223, 223) !important;
 }
-
 #alarm-text .button-group #preview {
-  background-color: #e7e7f0 !important;
+  background-color: rgb(231, 231, 240) !important;
 }
-
 #alarm-text textarea.form-control {
   direction: rtl;
   height: 64px;
@@ -287,7 +255,6 @@ body #main-grid #footer {
 footer {
   align-self: flex-end;
 }
-
 footer #developer {
   font-size: 0.6rem;
   text-transform: uppercase;
@@ -295,7 +262,6 @@ footer #developer {
   font-family: "Roboto", sans-serif;
   font-weight: 600;
 }
-
 footer .quote {
   font-family: "Roboto", sans-serif;
   max-width: 15vw;
@@ -313,12 +279,17 @@ footer .quote {
 }
 
 .unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
 #pre_modal {
   overflow: auto;
   text-align: center;
+  line-height: 1.5rem;
 }
 
 textarea {
@@ -334,27 +305,23 @@ textarea {
   background-color: #e6e7ee;
   color: #44476a;
 }
-
 .modal .modal-header {
   border-bottom: 0 none;
   flex-direction: column;
 }
-
 .modal .modal-header .modal-title {
   margin: auto;
   align-content: center;
   align-items: center;
 }
-
 .modal .modal-header .x-modal-close {
   align-self: flex-end;
   font-size: 2rem;
   margin: 1rem;
   padding: 0.4rem 0.8rem;
   border-radius: 50%;
-  background-color: #f0ddd9;
+  background-color: rgb(240, 221, 217);
 }
-
 .modal .modal-body #pre_modal {
   font-family: "vazir", sans-serif;
   font-size: 1rem;
@@ -363,7 +330,6 @@ textarea {
   border-radius: 1rem;
   box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1);
 }
-
 .modal .modal-footer {
   border-top: 0 none;
   direction: rtl;
@@ -372,7 +338,6 @@ textarea {
   text-align: center;
   transition: all 0.1s ease-in-out;
 }
-
 .modal .modal-footer .modal-button {
   margin: auto;
   padding: 1rem 4rem;
@@ -380,7 +345,6 @@ textarea {
   color: #555;
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
 }
-
 .modal .modal-footer .modal-button:hover {
   opacity: 0.8;
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
@@ -397,7 +361,6 @@ textarea {
   top: -1000px;
   transition: all 1.5s;
 }
-
 .neu-form .neu-form textarea {
   height: 44px;
 }
@@ -405,7 +368,6 @@ textarea {
 contact-form textarea {
   height: 44px;
 }
-
 contact-form #message {
   height: 44px;
 }
@@ -414,7 +376,7 @@ contact-form #message {
   body #main-grid {
     display: grid;
     grid-gap: 10px;
-    grid-template-areas: "header" "menu" "main" "footer";
+    grid-template-areas: "header" "menu" "main" "footer";
   }
   #header-title {
     margin-right: 0;
@@ -487,5 +449,4 @@ contact-form #message {
     opacity: 0.8;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

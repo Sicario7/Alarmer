@@ -140,7 +140,7 @@ body #main-grid #footer {
   margin-right: 1rem;
   font-size: 2rem;
   font-weight: 200;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 2rem;
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5), inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #ffffff;
   background: linear-gradient(318.32deg, rgba(163, 177, 198, 0.1) 0%, rgba(163, 177, 198, 0.1) 55%, rgba(163, 177, 198, 0.25) 100%);
@@ -197,7 +197,6 @@ body #main-grid #footer {
   align-items: center;
   padding: 1rem 1rem;
   padding-top: 0.5rem;
-  border-radius: 3rem;
 }
 #alarm-text #fullscreen {
   user-select: none;
@@ -353,16 +352,30 @@ textarea {
 .alarm-form {
   position: relative;
   top: 0;
-  transition: all 1.5s;
+  opacity: 1;
+  transition: opacity, top, 1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
 
 .neu-form {
   position: relative;
   top: -1000px;
-  transition: all 1.5s;
+  opacity: 0;
+  transition: opacity, top, 1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
 .neu-form .neu-form textarea {
   height: 44px;
+}
+.neu-form .form-logo {
+  height: 100px;
+  width: 100px;
+  background: url("../message.png");
+  background-size: 70px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
 }
 
 contact-form textarea {
@@ -409,12 +422,11 @@ contact-form #message {
     border-radius: 0.5rem;
   }
   #alarm-text {
-    width: 90%;
-    margin: auto;
-    border-radius: 2rem;
+    justify-content: space-around;
   }
   #alarm-text .form-group {
     width: 100%;
+    margin-top: 0.5rem;
   }
   #alarm-text #fullscreen {
     visibility: hidden;
@@ -426,7 +438,7 @@ contact-form #message {
   #alarm-text .button-group .main-btn {
     margin: 0.7rem;
     padding: 0.5rem;
-    width: 70%;
+    width: 100%;
   }
   #alarm-text .form-control {
     padding: 1rem;

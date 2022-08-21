@@ -12,7 +12,6 @@ $mobile-size: 768px;
         "footer";
     }
   }
-  //////////////////////////
 
   //////////////////////////
   #header-title {
@@ -52,12 +51,13 @@ $mobile-size: 768px;
   }
   //////////////////////////
   #alarm-text {
-    width: 90%;
-    margin: auto;
-
-    border-radius: 2rem;
+    // width: 90%;
+    // margin: auto;
+    // border-radius: 2rem;
+    justify-content: space-around;
     .form-group {
       width: 100%;
+      margin-top: 0.5rem;
       // Buttons Styling:
     }
     #fullscreen {
@@ -69,7 +69,7 @@ $mobile-size: 768px;
       .main-btn {
         margin: 0.7rem;
         padding: 0.5rem;
-        width: 70%;
+        width: 100%;
       }
     }
 

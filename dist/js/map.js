@@ -18,7 +18,7 @@ function initmap() {
 
   L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
     attribution:
-      '<span class="copyright">Made By YB, Map from &copy;<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a></span>',
+      '<span>Made By YB, Map from &copy;<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a></span>',
   }).addTo(map);
 }
 function localStorage_reader() {

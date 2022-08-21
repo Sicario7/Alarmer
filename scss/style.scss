@@ -4,7 +4,8 @@ $yellow-color: blanchedalmond;
 $red-color: rgb(240, 223, 223);
 $blue-color: rgb(231, 231, 240);
 // #TODO:
-$change-page-transition: all 1.5s;
+$change-page-transition: opacity, top,
+  1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
 
 @font-face {
   font-family: "vazir";
@@ -66,7 +67,7 @@ body {
   margin-right: 1rem;
   font-size: 2rem;
   font-weight: 200;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 2rem;
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
     -9px -9px 16px rgba(255, 255, 255, 0.5),
@@ -147,7 +148,7 @@ body {
   // margin: 1rem 1rem 0 1rem;
   padding: 1rem 1rem;
   padding-top: 0.5rem;
-  border-radius: 3rem;
+  // border-radius: 3rem;
   // box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
   //   -9px -9px 16px rgba(163, 177, 198, 0.6);
 
@@ -335,6 +336,7 @@ textarea {
   position: relative;
   // height: 100vh;
   top: 0;
+  opacity: 1;
   // margin: auto;
   transition: $change-page-transition;
 }
@@ -345,9 +347,22 @@ textarea {
 .neu-form {
   position: relative;
   top: -1000px;
+  opacity: 0;
   transition: $change-page-transition;
   .neu-form textarea {
     height: 44px;
+  }
+  .form-logo {
+    height: 100px;
+    width: 100px;
+    background: url("../message.png");
+    background-size: 70px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
   }
 }
 

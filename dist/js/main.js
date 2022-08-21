@@ -25,6 +25,8 @@ $(document).ready(function () {
   ////////////////////////////////////////////////////////////
   document.getElementsByClassName("alarm-form")[0].style.top = "0";
   document.getElementsByClassName("contact-form")[0].style.top = "-1000px";
+  document.getElementsByClassName("alarm-form")[0].style.opacity = "1";
+  document.getElementsByClassName("contact-form")[0].style.opacity = "0";
   // document.getElementsByClassName("setting-form")[0].style.top = "-1000px";
   $(".nav-item").click(function () {
     selectedID = this.id;
@@ -52,8 +54,10 @@ $(document).ready(function () {
     // item.style.top = item.style.top == "-1000px" ? 0 : "-1000px";
     if (visibility == true) {
       item.style.top = "0";
+      item.style.opacity = "1";
     } else {
       item.style.top = "-1000px";
+      item.style.opacity = "0";
     }
   }
   /////////////////////////////////////////////////////////

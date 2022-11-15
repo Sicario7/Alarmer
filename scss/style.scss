@@ -21,6 +21,8 @@ $change-page-transition: opacity, top,
 body {
   font-family: "vazir", sans-serif;
   background: #e4ebf5;
+  // background-image: url("../bg3.jpeg");
+  // background-size: cover;
   position: relative;
   line-height: 1.1rem;
   // height: 100%;
@@ -168,8 +170,28 @@ body {
     align-self: center;
     align-content: center;
     // Buttons Styling:
-    &:last-child {
-      // margin: auto;
+    // &:last-child {
+    //   // margin: auto;
+    // }
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    .second-row {
+      width: 400px;
+      display: flex;
+    }
+    #showonmap {
+      background-color: $yellow-color !important;
+    }
+    #clear {
+      background-color: $red-color !important;
+    }
+    #preview {
+      background-color: $blue-color !important;
+      margin-bottom: 20px;
+      width: 380px;
     }
   }
   // label {
@@ -203,18 +225,6 @@ body {
     transition-duration: 1s;
   }
 
-  .button-group {
-    // margin: 1rem;
-    #showonmap {
-      background-color: $yellow-color !important;
-    }
-    #clear {
-      background-color: $red-color !important;
-    }
-    #preview {
-      background-color: $blue-color !important;
-    }
-  }
   textarea.form-control {
     direction: rtl;
     height: 64px;

@@ -213,6 +213,25 @@ body #main-grid #footer {
   align-self: center;
   align-content: center;
 }
+#alarm-text .button-group {
+  display: flex;
+  flex-direction: column;
+}
+#alarm-text .button-group .second-row {
+  width: 400px;
+  display: flex;
+}
+#alarm-text .button-group #showonmap {
+  background-color: blanchedalmond !important;
+}
+#alarm-text .button-group #clear {
+  background-color: rgb(240, 223, 223) !important;
+}
+#alarm-text .button-group #preview {
+  background-color: rgb(231, 231, 240) !important;
+  margin-bottom: 20px;
+  width: 380px;
+}
 #alarm-text ::placeholder {
   color: #ccc;
 }
@@ -236,15 +255,6 @@ body #main-grid #footer {
   background: #e4ebf5;
   transition-property: background;
   transition-duration: 1s;
-}
-#alarm-text .button-group #showonmap {
-  background-color: blanchedalmond !important;
-}
-#alarm-text .button-group #clear {
-  background-color: rgb(240, 223, 223) !important;
-}
-#alarm-text .button-group #preview {
-  background-color: rgb(231, 231, 240) !important;
 }
 #alarm-text textarea.form-control {
   direction: rtl;

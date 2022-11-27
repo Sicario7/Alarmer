@@ -1,4 +1,5 @@
 @import "neu_utilities";
+@import "_mobile";
 $text-color: #555;
 $yellow-color: blanchedalmond;
 $red-color: rgb(240, 223, 223);
@@ -36,6 +37,15 @@ body {
       "main main main main main main menu"
       "main main main main main main footer";
 
+    @include mobile {
+      // display: grid;
+      grid-gap: 10px;
+      grid-template-areas:
+        "header"
+        "menu"
+        "main"
+        "footer";
+    }
     #title {
       grid-area: header;
     }
@@ -80,15 +90,25 @@ body {
     rgba(163, 177, 198, 0.1) 55%,
     rgba(163, 177, 198, 0.25) 100%
   );
+  @include mobile {
+    margin-right: 0;
+    margin: 10px;
+  }
 }
 
 #side-menu {
+  @include mobile {
+    border: none;
+  }
   ul {
     margin-top: 3rem;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include mobile {
+      margin-top: 1rem;
+    }
   }
 
   li {
@@ -109,6 +129,10 @@ body {
       inset 2px 2px 4px rgba(0, 0, 0, 0.15);
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
+    @include mobile {
+      border-radius: 0.5rem;
+      border: none;
+    }
   }
 
   a {
@@ -132,6 +156,20 @@ body {
       border-top-left-radius: 0.5rem;
       border-bottom-left-radius: 0.5rem;
     }
+    @include mobile {
+      padding: 0.3rem;
+      border: none;
+
+      &:hover {
+        border-radius: 0;
+        padding: 0.3rem;
+        border: none;
+      }
+
+      &:active {
+        border-radius: 0.5rem;
+      }
+    }
   }
 }
 
@@ -153,13 +191,18 @@ body {
   // border-radius: 3rem;
   // box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
   //   -9px -9px 16px rgba(163, 177, 198, 0.6);
-
+  @include mobile {
+    justify-content: space-around;
+  }
   #fullscreen {
     user-select: none;
     cursor: pointer;
     position: absolute;
     right: 4.5vw;
     top: 1rem;
+    @include mobile {
+      visibility: hidden;
+    }
   }
   .form-group {
     // height: 20%;
@@ -169,29 +212,49 @@ body {
     align-items: center;
     align-self: center;
     align-content: center;
-    // Buttons Styling:
-    // &:last-child {
-    //   // margin: auto;
-    // }
+    @include mobile {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
   }
 
   .button-group {
     display: flex;
     flex-direction: column;
-    .second-row {
-      width: 400px;
-      display: flex;
-    }
-    #showonmap {
-      background-color: $yellow-color !important;
-    }
-    #clear {
-      background-color: $red-color !important;
-    }
     #preview {
       background-color: $blue-color !important;
       margin-bottom: 20px;
-      width: 380px;
+      // width: 380px;
+      width: 100%;
+      padding: 20px 10px;
+      @include mobile {
+        width: 100%;
+      }
+    }
+
+    .second-row {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      @include mobile {
+        gap: 20px;
+      }
+      button {
+        padding: 16px 32px;
+        flex: 1;
+        @include mobile {
+          padding: 8px 6px;
+          font-size: 14px;
+        }
+      }
+      #showonmap {
+        background-color: $yellow-color !important;
+      }
+      #clear {
+        background-color: $red-color !important;
+      }
     }
   }
   // label {
@@ -223,11 +286,17 @@ body {
     background: #e4ebf5;
     transition-property: background;
     transition-duration: 1s;
+    @include mobile {
+      padding: 1rem;
+    }
   }
 
   textarea.form-control {
     direction: rtl;
     height: 64px;
+    @include mobile {
+      height: 56px;
+    }
   }
 }
 
@@ -246,6 +315,11 @@ footer {
     font-size: 0.8rem;
     color: #777;
     margin: auto;
+    @include mobile {
+      max-width: 90%;
+      font-size: 1rem;
+      margin: 1rem auto;
+    }
   }
 }
 #site_code {
@@ -332,6 +406,16 @@ textarea {
       box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
         6px 6px 10px rgba(0, 0, 0, 0.2);
       // flex-basis: auto;
+      @include mobile {
+        padding: 2rem;
+        align-content: center;
+        width: 70%;
+        &:hover {
+          opacity: 0.8;
+          box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+            6px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+      }
       &:hover {
         opacity: 0.8;
         box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
@@ -384,4 +468,4 @@ contact-form {
     height: 44px;
   }
 }
-@import "mobile";
+// @import "mobile";

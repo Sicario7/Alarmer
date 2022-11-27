@@ -1,115 +1,141 @@
-$mobile-size: 768px;
+// $mobile-size: 768px;
 
-@media (max-width: $mobile-size) {
-  body {
-    #main-grid {
-      display: grid;
-      grid-gap: 10px;
-      grid-template-areas:
-        "header"
-        "menu"
-        "main"
-        "footer";
-    }
+// @media (max-width: $mobile-size) {
+//   // body {
+//   //   #main-grid {
+//   //     display: grid;
+//   //     grid-gap: 10px;
+//   //     grid-template-areas:
+//   //       "header"
+//   //       "menu"
+//   //       "main"
+//   //       "footer";
+//   //   }
+//   // }
+
+//   //////////////////////////
+//   // #header-title {
+//   //   margin-right: 0;
+//   // }
+//   //////////////////////////
+//   #side-menu {
+//     ul {
+//       margin: 0.5rem;
+//       display: flex;
+//       flex-direction: row;
+//     }
+
+//     li {
+//       font-size: 0.8rem;
+//     }
+//     .active {
+//       border-radius: 0.5rem;
+//       border: none;
+//     }
+
+//     a {
+//       padding: 0.3rem;
+//       border: none;
+
+//       &:hover {
+//         border-radius: 0;
+//         padding: 0.3rem;
+//         border: none;
+//       }
+
+//       &:active {
+//         border-radius: 0.5rem;
+//       }
+//     }
+//   }
+//   //////////////////////////
+//   #alarm-text {
+//     // width: 90%;
+//     // margin: auto;
+//     // border-radius: 2rem;
+//     justify-content: space-around;
+//     .form-group {
+//       width: 100%;
+//       margin-top: 0.5rem;
+//       // Buttons Styling:
+//     }
+//     #fullscreen {
+//       visibility: hidden;
+//     }
+//     .button-group {
+//       display: flex;
+//       flex-direction: column;
+//       .main-btn {
+//         margin: 0.7rem;
+//         padding: 0.5rem;
+//         width: 100%;
+//       }
+//     }
+
+//     .form-control {
+//       // Height of text inputs
+//       padding: 1rem;
+//     }
+
+//     textarea.form-control {
+//       direction: rtl;
+//       height: 56px;
+//     }
+//   }
+//   //////////////////////////
+
+//   .contact-form {
+//     .container {
+//       //   width: 80%;
+//     }
+//   }
+//   //////////////////////////
+//   footer {
+//     .quote {
+//       max-width: 90%;
+//       font-size: 1rem;
+//       margin: 1rem auto;
+//     }
+//   }
+//   /////////////////////////
+//   .modal-footer {
+//     .modal-button {
+//       padding: 2rem;
+//       align-content: center;
+//       width: 70%;
+//       &:hover {
+//         opacity: 0.8;
+//         box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+//           6px 6px 10px rgba(0, 0, 0, 0.2);
+//       }
+//     }
+//   }
+// }
+$width: 768px;
+
+// @mixin desktop {
+//   @media (min-width: $width) {
+//     //  takes a content block using curly braces:
+//     @content;
+//   }
+// }
+@mixin mobile {
+  @media (max-width: $width) {
+    //  takes a content block using curly braces:
+    @content;
   }
-
-  //////////////////////////
-  #header-title {
-    margin-right: 0;
-  }
-  //////////////////////////
-  #side-menu {
-    ul {
-      margin: 0.5rem;
-      display: flex;
-      flex-direction: row;
-    }
-
-    li {
-      font-size: 0.8rem;
-    }
-    .active {
-      border-radius: 0.5rem;
-      border: none;
-    }
-
-    a {
-      padding: 0.3rem;
-      border: none;
-
-      &:hover {
-        border-radius: 0;
-        padding: 0.3rem;
-        border: none;
-      }
-
-      &:active {
-        border-radius: 0.5rem;
-      }
-    }
-    border: none;
-  }
-  //////////////////////////
-  #alarm-text {
-    // width: 90%;
-    // margin: auto;
-    // border-radius: 2rem;
-    justify-content: space-around;
-    .form-group {
-      width: 100%;
-      margin-top: 0.5rem;
-      // Buttons Styling:
-    }
-    #fullscreen {
-      visibility: hidden;
-    }
-    .button-group {
-      display: flex;
-      flex-direction: column;
-      .main-btn {
-        margin: 0.7rem;
-        padding: 0.5rem;
-        width: 100%;
-      }
-    }
-
-    .form-control {
-      // Height of text inputs
-      padding: 1rem;
-    }
-
-    textarea.form-control {
-      direction: rtl;
-      height: 56px;
-    }
-  }
-  //////////////////////////
-
-  .contact-form {
-    .container {
-      //   width: 80%;
-    }
-  }
-  //////////////////////////
-  footer {
-    .quote {
-      max-width: 90%;
-      font-size: 1rem;
-      margin: 1rem auto;
-    }
-  }
-  /////////////////////////
-  .modal-footer {
-    .modal-button {
-      padding: 2rem;
-      align-content: center;
-      width: 70%;
-      &:hover {
-        opacity: 0.8;
-        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
-          6px 6px 10px rgba(0, 0, 0, 0.2);
-      }
-    }
-  }
-  // End of Media Query
 }
+// @include mobile{
+//     // CSS
+// }
+
+// .mobile-only {
+//   @include desktop {
+//     display: none !important;
+//   }
+// }
+// .desktop-only {
+//   @include mobile {
+//     display: none !important;
+//   }
+// }
